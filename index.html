@@ -408,6 +408,7 @@
       const featured = item.is_featured ? `<span class="badge featured">Featured</span>` : "";
       const location = [item.town, item.region, item.postcode].filter(Boolean).join(" · ");
       const q = encodeURIComponent(mapsQuery(item));
+      const nearestLoos = encodeURIComponent("public toilets near " + mapsQuery(item));
       const website = item.website
         ? `<a class="btn btn-primary" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
         : "";
@@ -416,6 +417,7 @@
           ${website}
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${q}" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">Google Maps</a>
           <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${nearestLoos}" target="_blank" rel="noopener noreferrer" title="Nearest public toilets to this place">🚻 Nearest toilets</a>
         </div>`;
       return `
         <article class="card">
