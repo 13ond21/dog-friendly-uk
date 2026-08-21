@@ -112,6 +112,7 @@
     .chip:hover { border-color: var(--green); }
     .chip[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
     .chip-count { opacity: .7; font-size: .78rem; }
+    .loo-cta { margin: 14px 0 0; color: var(--muted); font-size: .9rem; }
 
     /* Filters */
     .filters {
@@ -172,6 +173,7 @@
     .badge.beach  { background: var(--blue); }
     .badge.trail  { background: var(--green); }
     .badge.dog_park { background: #7a3fb5; }
+    .badge.toilet { background: #0f766e; }
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
@@ -241,6 +243,11 @@
          UK and Ireland. Every place is picked for a warm welcome to well-behaved dogs —
          filter by region, category or keyword, then check the details before you go.</p>
       <div class="region-chips" id="region-chips" aria-label="Browse by region"></div>
+      <p class="loo-cta">🫖 Need the loo while you're out?
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=public%20toilets%20near%20me" target="_blank" rel="noopener noreferrer">Google Maps</a>
+        <a class="btn" href="https://maps.apple.com/?q=public%20toilets" target="_blank" rel="noopener noreferrer">Apple Maps</a>
+        — live results for your location.
+      </p>
     </div>
   </section>
 
@@ -256,6 +263,7 @@
         <button type="button" class="cat-btn" data-category="beach" aria-pressed="false">Beaches</button>
         <button type="button" class="cat-btn" data-category="trail" aria-pressed="false">Trails</button>
         <button type="button" class="cat-btn" data-category="dog_park" aria-pressed="false">Dog Parks</button>
+        <button type="button" class="cat-btn" data-category="toilet" aria-pressed="false">Toilets</button>
       </div>
       <div>
         <label class="sr-only" for="region">Filter by region</label>
@@ -344,7 +352,7 @@
        (e.g. "wild-swimming", "mobile-dog-groomers"). */
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
 
     const state = { all: [], category: "all", region: "all", query: "" };
 
