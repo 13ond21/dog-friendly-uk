@@ -11,7 +11,7 @@ Supabase database, designed to be cloned and re-skinned for future niche directo
 |---|---|
 | `index.html` | The entire site: SEO meta, filters, listing cards, AdSense placeholders, footer |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 148 starter listings, ready for Supabase's CSV import |
+| `dog-friendly-uk-listings.csv` | 202 starter listings (15 regions), ready for Supabase's CSV import |
 | `robots.txt` / `sitemap.xml` | SEO for GitHub Pages |
 | `favicon.svg` | Paw-print favicon |
 | `.gitignore` | Minimal ignore rules |
@@ -23,6 +23,9 @@ Supabase database, designed to be cloned and re-skinned for future niche directo
   `listings` table where `directory_slug = 'dog-friendly-uk'` and renders them client-side.
 - **Row Level Security** is enabled. Anonymous visitors can only `SELECT` — no one can
   insert, edit or delete from the public web. This is what makes exposing the anon key safe.
+- The page also emits **schema.org structured data** (JSON-LD `WebSite` + `ItemList`) so
+  search engines understand the listings, plus region quick-link chips for better crawling
+  and navigation.
 
 ---
 
@@ -76,12 +79,12 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **148 rows**.
+5. Click **Import**. You should now see **202 rows**.
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).
 
-> If you imported the original 70-row CSV earlier: **delete the existing rows first**
+> If you imported an earlier version of the CSV: **delete the existing rows first**
 > (Table Editor → select rows → Delete), then import the new full CSV — otherwise you
 > will get duplicate listings.
 

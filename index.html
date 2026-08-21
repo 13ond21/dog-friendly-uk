@@ -26,6 +26,19 @@
   <!-- ===== FAVICON ===== -->
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
+  <!-- ===== STRUCTURED DATA (JSON-LD) — helps search engines understand and rank the site ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Dog-Friendly Spots UK & Ireland",
+    "alternateName": "Dog friendly pubs, beaches, trails and dog parks in the UK and Ireland",
+    "url": "https://13ond21.github.io/dog-friendly-uk/",
+    "description": "Free directory of dog-friendly pubs, beaches, walking trails and dog parks across England, Wales, Scotland, Northern Ireland and Ireland.",
+    "inLanguage": "en-GB"
+  }
+  </script>
+
   <!-- ============================================================
        GOOGLE ADSENSE — PLACEHOLDER (read before touching)
        ------------------------------------------------------------
@@ -81,6 +94,24 @@
     }
     .site-header h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.4rem); }
     .tagline { margin: 0; opacity: .92; max-width: 62ch; }
+
+    /* Intro / SEO content */
+    .intro { background: #fff; border-bottom: 1px solid var(--border); padding: 18px 0; }
+    .intro p { margin: 0 0 12px; max-width: 75ch; color: var(--muted); }
+    .intro strong { color: var(--ink); }
+    .region-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip {
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 999px;
+      padding: 6px 13px;
+      font-size: .85rem;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .chip:hover { border-color: var(--green); }
+    .chip[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .chip-count { opacity: .7; font-size: .78rem; }
 
     /* Filters */
     .filters {
@@ -188,6 +219,16 @@
       <p class="tagline">Real pubs, beaches, walking trails and dog parks where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
     </div>
   </header>
+
+  <section class="intro">
+    <div class="wrap">
+      <p>Find <strong>dog-friendly pubs</strong>, <strong>dog-friendly beaches</strong>,
+         <strong>walking trails</strong> and <strong>off-lead dog parks</strong> across the
+         UK and Ireland. Every place is picked for a warm welcome to well-behaved dogs —
+         filter by region, category or keyword, then check the details before you go.</p>
+      <div class="region-chips" id="region-chips" aria-label="Browse by region"></div>
+    </div>
+  </section>
 
   <section class="filters" aria-label="Filters">
     <div class="wrap">
@@ -302,7 +343,8 @@
       empty: document.getElementById("empty"),
       notice: document.getElementById("config-notice"),
       error: document.getElementById("error"),
-      year: document.getElementById("year")
+      year: document.getElementById("year"),
+      chips: document.getElementById("region-chips")
     };
 
     function esc(value) {
@@ -370,10 +412,69 @@
       els.region.innerHTML = `<option value="all">All regions</option>` + options.join("");
     }
 
+    /* ---------------- region chips (quick links) ---------------- */
+    function syncChipsFromDropdown() {
+      els.chips.querySelectorAll("[data-region]").forEach((c) => {
+        c.setAttribute("aria-pressed", String(c.dataset.region === state.region));
+      });
+    }
+
+    function setRegion(region) {
+      state.region = region;
+      els.region.value = region;
+      syncChipsFromDropdown();
+      render();
+    }
+
+    function populateRegionChips() {
+      const counts = {};
+      state.all.forEach((i) => { counts[i.region] = (counts[i.region] || 0) + 1; });
+      const regions = Object.keys(counts).sort();
+      const allChip = `<button type="button" class="chip" data-region="all" aria-pressed="true">All regions</button>`;
+      const chips = regions.map((r) =>
+        `<button type="button" class="chip" data-region="${esc(r)}" aria-pressed="false">${esc(r)} <span class="chip-count">${counts[r]}</span></button>`
+      );
+      els.chips.innerHTML = allChip + chips.join("");
+      els.chips.querySelectorAll("[data-region]").forEach((chip) => {
+        chip.addEventListener("click", () => setRegion(chip.dataset.region));
+      });
+    }
+
+    /* ---------------- structured data for search engines ---------------- */
+    function injectListingsJSONLD() {
+      const countryOf = (region) => (region === "Ireland" ? "IE" : "GB");
+      const items = state.all.map((item, idx) => ({
+        "@type": "ListItem",
+        position: idx + 1,
+        item: {
+          "@type": "Place",
+          name: item.name,
+          description: item.description,
+          url: item.website || undefined,
+          address: {
+            "@type": "PostalAddress",
+            addressLocality: item.town || undefined,
+            postalCode: item.postcode || undefined,
+            addressRegion: item.region,
+            addressCountry: countryOf(item.region)
+          }
+        }
+      }));
+      const script = document.createElement("script");
+      script.type = "application/ld+json";
+      script.textContent = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "name": "Dog-friendly places in the UK and Ireland",
+        "itemListElement": items
+      });
+      document.head.appendChild(script);
+    }
+
     /* ---------------- events ---------------- */
     function bindEvents() {
       els.search.addEventListener("input", (e) => { state.query = e.target.value; render(); });
-      els.region.addEventListener("change", (e) => { state.region = e.target.value; render(); });
+      els.region.addEventListener("change", (e) => { state.region = e.target.value; syncChipsFromDropdown(); render(); });
       els.categoryButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           els.categoryButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
@@ -404,8 +505,10 @@
 
         state.all = data || [];
         populateRegions();
+        populateRegionChips();
         bindEvents();
         render();
+        injectListingsJSONLD();
       } catch (err) {
         console.error("Failed to load listings:", err);
         els.error.hidden = false;
