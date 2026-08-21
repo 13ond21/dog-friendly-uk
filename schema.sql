@@ -29,11 +29,19 @@ create index if not exists listings_category_idx      on public.listings (catego
 -- No other operations (insert/update/delete) are allowed anonymously.
 alter table public.listings enable row level security;
 
+drop policy if exists "Public read access for listings" on public.listings;
 create policy "Public read access for listings"
 on public.listings
 for select
 to anon
 using (true);
+
+-- 3b) GRANT read access to the anon / authenticated roles ---------------------
+-- IMPORTANT: tables created via the SQL Editor (raw SQL) are NOT auto-granted
+-- to Supabase's built-in roles. Without these GRANTs the public site gets
+-- "permission denied for table listings" even with RLS enabled.
+grant select on table public.listings to anon;
+grant select on table public.listings to authenticated;
 
 -- 4) Verify everything is correct ----------------------------------------------
 -- SELECT relrowsecurity FROM pg_class WHERE relname = 'listings';   -- expect: true
