@@ -326,7 +326,7 @@
          Try a <strong>postcode</strong> (e.g. <code>LA23</code> or <code>BT7</code>) to
          see the dog-friendly spots in that area.</p>
       <div class="region-chips" id="region-chips" aria-label="Browse by region"></div>
-      <p class="loo-cta">🫖 Need the loo while you're out?
+      <p class="loo-cta">🚽 Need the loo while you're out?
         <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=public%20toilets%20near%20me" target="_blank" rel="noopener noreferrer">Google Maps</a>
         <a class="btn" href="https://maps.apple.com/?q=public%20toilets" target="_blank" rel="noopener noreferrer">Apple Maps</a>
         — live results for your location.
@@ -521,7 +521,7 @@
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
     const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚻" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽" };
 
     const state = { all: [], category: "all", region: "all", query: "", sort: "recommended", userLoc: null };
 
@@ -746,7 +746,7 @@
           ${website}
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${q}" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">Google Maps</a>
           <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>
-          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${nearestLoos}" target="_blank" rel="noopener noreferrer" title="Nearest public toilets to this place">🚻 Nearest toilets</a>
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${nearestLoos}" target="_blank" rel="noopener noreferrer" title="Nearest public toilets to this place">🚽 Nearest toilets</a>
         </div>`;
       const opening = item.opening_hours ? `<p class="meta">🕒 ${esc(item.opening_hours)}</p>` : "";
       const phone = item.phone
