@@ -155,7 +155,9 @@ copy, and the seed data.
 
 ## Manual checklist (things only you can do)
 
-- [ ] Paste real Supabase keys into `index.html`
+- [x] Paste real Supabase keys into `index.html`
+- [ ] Run `schema.sql` in the Supabase SQL Editor (creates the `listings` table + RLS)
+- [ ] Import `dog-friendly-uk-listings.csv` via Table Editor (70 rows)
 - [ ] Verify a handful of listings (pub dog policies and beach dog bans change)
 - [x] Replace `YOUR-USERNAME` / `YOUR-REPO` in `index.html`, `robots.txt`, `sitemap.xml`
 - [ ] Replace `your@email.com` in the footer
