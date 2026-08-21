@@ -429,9 +429,11 @@
     function populateRegionChips() {
       const counts = {};
       state.all.forEach((i) => { counts[i.region] = (counts[i.region] || 0) + 1; });
-      const regions = Object.keys(counts).sort();
+      const top = Object.keys(counts)
+        .sort((a, b) => counts[b] - counts[a] || a.localeCompare(b))
+        .slice(0, 20);
       const allChip = `<button type="button" class="chip" data-region="all" aria-pressed="true">All regions</button>`;
-      const chips = regions.map((r) =>
+      const chips = top.map((r) =>
         `<button type="button" class="chip" data-region="${esc(r)}" aria-pressed="false">${esc(r)} <span class="chip-count">${counts[r]}</span></button>`
       );
       els.chips.innerHTML = allChip + chips.join("");
