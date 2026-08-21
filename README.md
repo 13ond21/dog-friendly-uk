@@ -1,9 +1,10 @@
 # 🐾 Dog-Friendly Spots UK & Ireland
 
 A free directory of **dog-friendly pubs, beaches, walking trails and dog parks** across
-the UK and Ireland. A single static HTML page (no framework, no build step) backed by a
-Supabase database, designed to be cloned and re-skinned for future niche directory sites
-(wild swimming, mobile dog groomers, etc.).
+the UK and Ireland — with deep county-by-county coverage of **Ireland and Northern
+Ireland** (18 Irish counties). A single static HTML page (no framework, no build step)
+backed by a Supabase database, designed to be cloned and re-skinned for future niche
+directory sites (wild swimming, mobile dog groomers, etc.).
 
 ## Project structure
 
@@ -11,7 +12,7 @@ Supabase database, designed to be cloned and re-skinned for future niche directo
 |---|---|
 | `index.html` | The entire site: SEO meta, filters, listing cards, AdSense placeholders, footer |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 202 starter listings (15 regions), ready for Supabase's CSV import |
+| `dog-friendly-uk-listings.csv` | 255 starter listings (31 regions incl. Irish counties), ready for Supabase's CSV import |
 | `robots.txt` / `sitemap.xml` | SEO for GitHub Pages |
 | `favicon.svg` | Paw-print favicon |
 | `.gitignore` | Minimal ignore rules |
@@ -79,10 +80,13 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **202 rows**.
+5. Click **Import**. You should now see **255 rows**.
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).
+
+Ireland and Northern Ireland listings use **county-level regions** (Antrim, Down,
+Dublin, Kerry, Galway, Donegal, Wexford, …) so the filters show real coverage.
 
 > If you imported an earlier version of the CSV: **delete the existing rows first**
 > (Table Editor → select rows → Delete), then import the new full CSV — otherwise you
