@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO BASICS ===== -->
+  <title>Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches &amp; Trails</title>
+  <meta name="description" content="A free directory of dog-friendly pubs, beaches and walking trails across the UK and Ireland. Search by region, category or keyword and find your next adventure with your dog.">
+  <!-- Update the canonical URL once your GitHub Pages site is live -->
+  <link rel="canonical" href="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+
+  <!-- ===== OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Dog-Friendly Spots UK &amp; Ireland">
+  <meta property="og:title" content="Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches &amp; Trails">
+  <meta property="og:description" content="Real dog-friendly pubs, beaches and walking trails across the UK and Ireland. Search by region and find your next adventure.">
+  <meta property="og:url" content="https://YOUR-USERNAME.github.io/YOUR-REPO/">
+  <!-- og:image should be a real 1200x630 PNG (e.g. og-image.png) added to the repo once
+       your site is live. Until then, leave this line or delete it — social previews
+       will simply show the title and description without a photo. -->
+  <meta property="og:image" content="https://YOUR-USERNAME.github.io/YOUR-REPO/og-image.png">
+  <meta property="og:locale" content="en_GB">
+  <meta name="twitter:card" content="summary">
+
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+
+  <!-- ============================================================
+       GOOGLE ADSENSE — PLACEHOLDER (read before touching)
+       ------------------------------------------------------------
+       1) Apply at https://adsense.google.com once the site is live.
+       2) After approval, copy the SCRIPT TAG from your AdSense
+          dashboard and paste it HERE (inside <head>). It looks like:
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX" crossorigin="anonymous"></script>
+       3) Then create an ad unit in AdSense and paste its <ins> code
+          into the two AD-SLOT <div>s in the page body (search the
+          file for "AD-SLOT-TOP").
+       Do NOT paste real AdSense code before the site is approved —
+       it will not serve ads and will only slow the page down.
+       ============================================================ -->
+
+  <!-- Supabase JS from CDN — no build step, no npm needed -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+  <style>
+    :root {
+      --green: #1f6f43;
+      --green-dark: #16512f;
+      --amber: #b7791f;
+      --blue: #1f6fb7;
+      --ink: #1c2b24;
+      --muted: #5b6b62;
+      --bg: #f6f8f6;
+      --card: #ffffff;
+      --border: #e3e9e4;
+      --radius: 12px;
+    }
+    * { box-sizing: border-box; }
+    [hidden] { display: none !important; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.55;
+    }
+    a { color: var(--green); }
+    .wrap { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .sr-only {
+      position: absolute; width: 1px; height: 1px;
+      padding: 0; margin: -1px; overflow: hidden;
+      clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+    }
+
+    /* Header */
+    .site-header {
+      background: linear-gradient(135deg, var(--green) 0%, #2d8a5a 100%);
+      color: #fff;
+      padding: 48px 0 40px;
+    }
+    .site-header h1 { margin: 0 0 8px; font-size: clamp(1.6rem, 4vw, 2.4rem); }
+    .tagline { margin: 0; opacity: .92; max-width: 62ch; }
+
+    /* Filters */
+    .filters {
+      position: sticky; top: 0; z-index: 5;
+      background: #fff;
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+    }
+    .filters .wrap { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+    .search { flex: 1 1 260px; }
+    input[type="search"], select {
+      padding: 9px 12px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: .95rem;
+      background: #fff;
+      color: var(--ink);
+    }
+    input[type="search"] { width: 100%; }
+    .cat-btns { display: flex; gap: 6px; flex-wrap: wrap; }
+    .cat-btn {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 14px;
+      font-size: .88rem;
+      cursor: pointer;
+      color: var(--ink);
+    }
+    .cat-btn[aria-pressed="true"] { background: var(--green); border-color: var(--green); color: #fff; }
+    .cat-btn:hover { border-color: var(--green); }
+    /* Main */
+    main { padding: 26px 0 60px; }
+    .count { color: var(--muted); font-size: .9rem; margin: 0 0 16px; }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      box-shadow: 0 1px 2px rgba(0,0,0,.04);
+    }
+    .card-top { display: flex; justify-content: space-between; align-items: center; gap: 8px; }
+    .card h2 { margin: 0; font-size: 1.12rem; line-height: 1.3; }
+    .badge {
+      font-size: .72rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .04em; padding: 3px 9px; border-radius: 999px;
+      color: #fff; white-space: nowrap;
+    }
+    .badge.pub    { background: var(--amber); }
+    .badge.beach  { background: var(--blue); }
+    .badge.trail  { background: var(--green); }
+    .badge.featured { background: #141b16; }
+    .meta { color: var(--muted); font-size: .88rem; }
+    .desc { font-size: .95rem; margin: 0; }
+    .link { margin-top: auto; font-weight: 600; font-size: .9rem; }
+
+    /* States */
+    .notice, .error, .empty {
+      background: #fff;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      text-align: center;
+      color: var(--muted);
+      margin: 0 0 18px;
+    }
+    code { background: var(--bg); padding: 1px 5px; border-radius: 4px; }
+
+    /* Ad slots — these are placeholders only. When you paste a real ad unit,
+       remove the dashed border and the "Advertisement" text (see comments). */
+    .ad-slot {
+      min-height: 90px;
+      margin: 26px 0;
+      display: flex; align-items: center; justify-content: center;
+      border: 1px dashed var(--border);
+      border-radius: var(--radius);
+      color: #b9c4bc;
+      font-size: .8rem;
+    }
+
+    /* Footer */
+    .site-footer { background: #0f241a; color: #cfe3d6; padding: 30px 0 40px; font-size: .9rem; }
+    .site-footer a { color: #9fd4b4; }
+    .footer-grid { display: flex; flex-wrap: wrap; gap: 24px; justify-content: space-between; }
+
+    @media (max-width: 640px) {
+      .filters { position: static; }
+      .site-header { padding: 34px 0 28px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="wrap">
+      <h1>🐾 Dog-Friendly Spots UK &amp; Ireland</h1>
+      <p class="tagline">Real pubs, beaches and walking trails where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
+    </div>
+  </header>
+
+  <section class="filters" aria-label="Filters">
+    <div class="wrap">
+      <div class="search">
+        <label class="sr-only" for="search">Search listings</label>
+        <input type="search" id="search" placeholder="Search by name, town or keyword…" autocomplete="off">
+      </div>
+      <div class="cat-btns" role="group" aria-label="Filter by category">
+        <button type="button" class="cat-btn" data-category="all" aria-pressed="true">All</button>
+        <button type="button" class="cat-btn" data-category="pub" aria-pressed="false">Pubs</button>
+        <button type="button" class="cat-btn" data-category="beach" aria-pressed="false">Beaches</button>
+        <button type="button" class="cat-btn" data-category="trail" aria-pressed="false">Trails</button>
+      </div>
+      <div>
+        <label class="sr-only" for="region">Filter by region</label>
+        <select id="region">
+          <option value="all">All regions</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <main class="wrap">
+    <p class="count" id="count" role="status"></p>
+
+    <!-- Config notice: shown until you paste real Supabase keys into the CONFIG block below -->
+    <div class="notice" id="config-notice" hidden>
+      <strong>Database not connected yet.</strong><br>
+      Paste your Supabase project URL and anon key into the
+      <code>SUPABASE_URL</code> and <code>SUPABASE_ANON_KEY</code> constants
+      in the CONFIG block at the bottom of this file, then refresh.
+    </div>
+
+    <!-- Error notice: shown if the data fetch fails -->
+    <div class="error" id="error" hidden>
+      <strong>Something went wrong loading the listings.</strong><br>
+      Check your network connection and that your Supabase keys and schema are set up.
+    </div>
+
+    <!-- Empty state: shown when a filter matches nothing -->
+    <div class="empty" id="empty" hidden>No places match your filters — try widening the search.</div>
+
+    <div class="grid" id="listings"></div>
+
+    <!-- ========== AD-SLOT-TOP ==========
+         Paste your approved AdSense <ins class="adsbygoogle" ...> snippet
+         inside this div, remove the "Advertisement" text, and remove the
+         dashed border via the .ad-slot CSS rule.
+         AdSense generates the exact snippet for you, but it looks like:
+           <ins class="adsbygoogle" style="display:block"
+                data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                data-ad-slot="0000000000"
+                data-ad-format="auto"
+                data-full-width-responsive="true"></ins>
+         After the LAST ad slot on the page, add this once:
+           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+    ====================================== -->
+    <div class="ad-slot" id="ad-slot-top" aria-hidden="true">Advertisement</div>
+
+    <!-- ========== AD-SLOT-BOTTOM ==========
+         Same as AD-SLOT-TOP — paste a second ad unit here if you want one
+         below the listings. Delete this div if you only need one ad.
+    ====================================== -->
+    <div class="ad-slot" id="ad-slot-bottom" aria-hidden="true">Advertisement</div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap footer-grid">
+      <div>
+        <p><strong>Dog-Friendly Spots UK &amp; Ireland</strong></p>
+        <p>A free community directory of pubs, beaches and trails where dogs are welcome.
+           Found somewhere great? Tell us and we will add it.</p>
+      </div>
+      <div>
+        <!-- TODO: replace your@email.com with your real inbox before going live -->
+        <a href="mailto:your@email.com?subject=Dog-Friendly%20Spots%20%E2%80%94%20suggest%20a%20listing">✉️ Suggest a listing</a>
+        <p style="color:#8fb39d; font-size:.85rem; margin-top:8px;">
+          Listings are a starting point — dog policies change, so check before you go.
+        </p>
+      </div>
+    </div>
+    <div class="wrap" style="margin-top:20px; font-size:.8rem; color:#8fb39d;">
+      © <span id="year"></span> Dog-Friendly Spots UK &amp; Ireland
+    </div>
+  </footer>
+  <script>
+    /* ============================================================
+       CONFIG — paste your Supabase credentials here.
+       Where to find them: Supabase Dashboard -> your project ->
+       Settings -> API. Copy the "Project URL" and the "anon public"
+       key. The anon key is safe to expose in public code because
+       Row Level Security controls what it can access (see schema.sql).
+       ============================================================ */
+    const SUPABASE_URL = "PASTE_YOUR_SUPABASE_PROJECT_URL_HERE";
+    const SUPABASE_ANON_KEY = "PASTE_YOUR_SUPABASE_ANON_KEY_HERE";
+
+    /* Change this when you clone the site for a new niche
+       (e.g. "wild-swimming", "mobile-dog-groomers"). */
+    const DIRECTORY_SLUG = "dog-friendly-uk";
+
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail" };
+
+    const state = { all: [], category: "all", region: "all", query: "" };
+
+    const els = {
+      search: document.getElementById("search"),
+      region: document.getElementById("region"),
+      categoryButtons: document.querySelectorAll("[data-category]"),
+      count: document.getElementById("count"),
+      grid: document.getElementById("listings"),
+      empty: document.getElementById("empty"),
+      notice: document.getElementById("config-notice"),
+      error: document.getElementById("error"),
+      year: document.getElementById("year")
+    };
+
+    function esc(value) {
+      return String(value ?? "")
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+    }
+
+    function isConfigured() {
+      return !SUPABASE_URL.startsWith("PASTE_YOUR") &&
+             !SUPABASE_ANON_KEY.startsWith("PASTE_YOUR");
+    }
+
+    /* ---------------- filtering ---------------- */
+    function getFiltered() {
+      const q = state.query.trim().toLowerCase();
+      return state.all.filter((item) => {
+        if (state.category !== "all" && item.category !== state.category) return false;
+        if (state.region !== "all" && item.region !== state.region) return false;
+        if (q) {
+          const haystack = [item.name, item.town, item.region, item.postcode, item.description]
+            .join(" ").toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      });
+    }
+
+    /* ---------------- rendering ---------------- */
+    function cardHTML(item) {
+      const badge = `<span class="badge ${esc(item.category)}">${esc(CATEGORY_LABELS[item.category] || item.category)}</span>`;
+      const featured = item.is_featured ? `<span class="badge featured">Featured</span>` : "";
+      const location = [item.town, item.region, item.postcode].filter(Boolean).join(" · ");
+      const website = item.website
+        ? `<a class="link" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
+        : "";
+      return `
+        <article class="card">
+          <div class="card-top">${featured}${badge}</div>
+          <h2>${esc(item.name)}</h2>
+          <p class="meta">${esc(location)}</p>
+          <p class="desc">${esc(item.description)}</p>
+          ${website}
+        </article>`;
+    }
+
+    function render() {
+      const list = getFiltered();
+      const total = state.all.length;
+      els.count.textContent = `Showing ${list.length} of ${total} place${total === 1 ? "" : "s"}`;
+      els.grid.innerHTML = list.map(cardHTML).join("");
+      els.empty.hidden = list.length > 0;
+      els.empty.textContent = state.all.length === 0
+        ? "No listings in the database yet — import the seed CSV into Supabase to get started."
+        : "No places match your filters — try widening the search.";
+    }
+
+    /* ---------------- region dropdown ---------------- */
+    function populateRegions() {
+      const regions = [...new Set(state.all.map((i) => i.region).filter(Boolean))].sort();
+      const options = regions.map((r) => `<option value="${esc(r)}">${esc(r)}</option>`);
+      els.region.innerHTML = `<option value="all">All regions</option>` + options.join("");
+    }
+
+    /* ---------------- events ---------------- */
+    function bindEvents() {
+      els.search.addEventListener("input", (e) => { state.query = e.target.value; render(); });
+      els.region.addEventListener("change", (e) => { state.region = e.target.value; render(); });
+      els.categoryButtons.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          els.categoryButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+          state.category = btn.dataset.category;
+          render();
+        });
+      });
+    }
+
+    /* ---------------- fetch + init ---------------- */
+    async function init() {
+      els.year.textContent = new Date().getFullYear();
+
+      if (!isConfigured()) {
+        els.notice.hidden = false;
+        return;
+      }
+
+      try {
+        const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { data, error } = await supabase
+          .from("listings")
+          .select("id, name, category, region, town, postcode, description, website, is_featured")
+          .eq("directory_slug", DIRECTORY_SLUG)
+          .order("name", { ascending: true });
+
+        if (error) throw error;
+
+        state.all = data || [];
+        populateRegions();
+        bindEvents();
+        render();
+      } catch (err) {
+        console.error("Failed to load listings:", err);
+        els.error.hidden = false;
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
+
+
+
