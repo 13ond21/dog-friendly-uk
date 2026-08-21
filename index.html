@@ -7,7 +7,7 @@
 
   <!-- ===== SEO BASICS ===== -->
   <title>Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches, Trails &amp; Dog Parks</title>
-  <meta name="description" content="A free directory of dog-friendly pubs, beaches, walking trails and dog parks across the UK and Ireland. Search by region, category or keyword and find your next adventure with your dog.">
+  <meta name="description" content="A free directory of dog-friendly pubs, beaches, walking trails, dog parks and restaurants &amp; cafés across the UK and Ireland. Search by region, category or keyword and find your next adventure with your dog.">
   <!-- Update the canonical URL once your GitHub Pages site is live -->
   <link rel="canonical" href="https://13ond21.github.io/dog-friendly-uk/">
 
@@ -217,6 +217,7 @@
     .badge.dog_park { background: #7a3fb5; }
     .badge.toilet { background: #0f766e; }
     .badge.accommodation { background: #4338ca; }
+    .badge.restaurant { background: #c2410c; }
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
@@ -318,7 +319,7 @@
   <header class="site-header">
     <div class="wrap">
       <h1>🐾 Dog-Friendly Spots UK &amp; Ireland</h1>
-      <p class="tagline">Real pubs, beaches, walking trails and dog parks where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
+      <p class="tagline">Real pubs, beaches, walking trails, dog parks and restaurants &amp; cafés where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
       <p class="stats" id="stats" aria-live="polite"></p>
     </div>
   </header>
@@ -326,7 +327,8 @@
   <section class="intro">
     <div class="wrap">
       <p>Find <strong>dog-friendly pubs</strong>, <strong>dog-friendly beaches</strong>,
-         <strong>walking trails</strong> and <strong>off-lead dog parks</strong> across the
+         <strong>walking trails</strong>, <strong>off-lead dog parks</strong> and
+         <strong>restaurants &amp; cafés</strong> across the
          UK and Ireland. Every place is picked for a warm welcome to well-behaved dogs —
          filter by region, category or keyword, then check the details before you go.
          Try a <strong>postcode</strong> (e.g. <code>LA23</code> or <code>BT7</code>) to
@@ -355,6 +357,7 @@
         <button type="button" class="cat-btn" data-category="dog_park" aria-pressed="false">Dog Parks</button>
         <button type="button" class="cat-btn" data-category="toilet" aria-pressed="false">Toilets</button>
         <button type="button" class="cat-btn" data-category="accommodation" aria-pressed="false">Accommodation</button>
+        <button type="button" class="cat-btn" data-category="restaurant" aria-pressed="false">Restaurants &amp; Cafés</button>
       </div>
       <div>
         <label class="sr-only" for="region">Filter by region</label>
@@ -461,6 +464,10 @@
     <a class="browse-link" href="?category=accommodation&amp;region=North%20Yorkshire">Dog-friendly accommodation in North Yorkshire</a>
     <a class="browse-link" href="?category=accommodation&amp;region=Kerry">Dog-friendly accommodation in Kerry</a>
     <a class="browse-link" href="?category=accommodation&amp;region=London">Dog-friendly accommodation in London</a>
+    <a class="browse-link" href="?category=restaurant&amp;region=London">Dog-friendly restaurants &amp; cafés in London</a>
+    <a class="browse-link" href="?category=restaurant&amp;region=Cheshire">Dog-friendly restaurants &amp; cafés in Cheshire</a>
+    <a class="browse-link" href="?category=restaurant&amp;region=Lancashire">Dog-friendly restaurants &amp; cafés in Lancashire</a>
+    <a class="browse-link" href="?category=restaurant&amp;region=Oxfordshire">Dog-friendly restaurants &amp; cafés in Oxfordshire</a>
 </div>
   </section>
 
@@ -542,8 +549,8 @@
     const AFFILIATE_BOOKING_AID = "";            // e.g. "1234567"
     const AFFILIATE_BOOKING_LABEL = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️" };
 
     const state = { all: [], category: "all", region: "all", query: "", sort: "recommended", userLoc: null };
 
@@ -796,8 +803,11 @@
       const facilities = item.category === "toilet"
         ? `<div class="spec-row facilities-row"><span class="spec-icon">♿</span><span class="facilities">${item.wheelchair_accessible ? '<span class="facility">Accessible</span>' : ""}${item.baby_change ? '<span class="facility">Baby change</span>' : ""}</span></div>`
         : "";
-      const specs = (specRows.length || facilities)
-        ? `<div class="specs">${specRows.join("")}${facilities}</div>`
+      const seasonal = item.category === "beach" && item.seasonal_rules
+        ? `<div class="spec-row facilities-row"><span class="spec-icon">🐾</span><span class="facilities"><span class="facility seasonal">⚠️ Seasonal rules: ${esc(item.seasonal_rules)}</span></span></div>`
+        : "";
+      const specs = (specRows.length || facilities || seasonal)
+        ? `<div class="specs">${specRows.join("")}${facilities}${seasonal}</div>`
         : "";
       return `
         <article class="card">
@@ -983,7 +993,7 @@
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         const { data, error } = await supabase
           .from("listings")
-          .select("id, name, category, region, town, postcode, description, website, is_featured")
+          .select("id, name, category, region, town, postcode, description, website, is_featured, opening_hours, phone, popularity, wheelchair_accessible, baby_change, seasonal_rules, latitude, longitude")
           .eq("directory_slug", DIRECTORY_SLUG)
           .order("name", { ascending: true });
 

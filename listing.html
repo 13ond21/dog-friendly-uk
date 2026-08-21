@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#1f6f43">
   <title>Dog-Friendly Spots UK &amp; Ireland</title>
-  <meta name="description" content="Dog-friendly pubs, beaches, walking trails and dog parks across the UK and Ireland.">
+  <meta name="description" content="Dog-friendly pubs, beaches, walking trails, dog parks, restaurants &amp; cafés and accommodation across the UK and Ireland.">
   <meta name="robots" content="index, follow">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="canonical" id="canonical" href="listing.html">
@@ -66,6 +66,7 @@
     .badge.dog_park { background: #7a3fb5; }
     .badge.toilet { background: #0f766e; }
     .badge.accommodation { background: #4338ca; }
+    .badge.restaurant { background: #c2410c; }
     .badge.featured { background: #141b16; }
     h2.title { margin: 0 0 4px; font-size: 1.7rem; line-height: 1.25; }
     .meta { color: var(--muted); font-size: .95rem; margin: 6px 0; }
@@ -178,9 +179,9 @@
       showGoogleHotels: true
     };
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨" };
-    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets", accommodation: "accommodation" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️" };
+    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets", accommodation: "accommodation", restaurant: "restaurant" };
 
     function slugify(s) {
       return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -304,6 +305,9 @@
         const chips = `${item.wheelchair_accessible ? '<span class="facility">♿ Accessible</span>' : ""}${item.baby_change ? '<span class="facility">🍼 Baby change</span>' : ""}`;
         specs.push(`<div class="spec-row"><span class="spec-label">Facilities</span><span class="spec-value facilities">${chips}</span></div>`);
       }
+      if (item.category === "beach" && item.seasonal_rules) {
+        specs.push(`<div class="spec-row"><span class="spec-label">Seasonal rules</span><span class="spec-value"><span class="facility">⚠️ ${esc(item.seasonal_rules)}</span></span></div>`);
+      }
       const specBlock = `<div class="specs"><h3>Details</h3>${specs.join("")}</div>`;
 
       return `
@@ -340,7 +344,7 @@
         const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
         const { data, error } = await supabase
           .from("listings")
-          .select("name, category, region, town, postcode, description, website, is_featured, opening_hours, phone, popularity, wheelchair_accessible, baby_change, latitude, longitude")
+          .select("name, category, region, town, postcode, description, website, is_featured, opening_hours, phone, popularity, wheelchair_accessible, baby_change, seasonal_rules, latitude, longitude")
           .eq("directory_slug", DIRECTORY_SLUG);
         if (error) throw error;
 
