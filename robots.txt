@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Point crawlers at the sitemap. Update the URL once your site is live.
-Sitemap: https://YOUR-USERNAME.github.io/YOUR-REPO/sitemap.xml
+Sitemap: https://13ond21.github.io/dog-friendly-uk/sitemap.xml

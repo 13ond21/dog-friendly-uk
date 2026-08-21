@@ -107,34 +107,25 @@ Supabase, so no backend is needed locally.)
 
 ## 6. Deploy to GitHub Pages
 
-You need to create the repo on GitHub yourself — I can't do that step. Here is the
-exact workflow:
+**Status: done.** The repo was created, pushed and Pages enabled for this project:
 
-**a) Create the repo.** On <https://github.com/new> create an empty repository
-(do **not** tick "Add a README"). Note its URL.
+```
+https://github.com/13ond21/dog-friendly-uk   (repo)
+https://13ond21.github.io/dog-friendly-uk/   (live site)
+```
 
-**b) Push this folder.** From inside this project folder:
+If you ever redeploy from scratch, the workflow is:
 
 ```
 git init -b main
 git add .
 git commit -m "Initial commit: dog-friendly directory site"
-git remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO.git
+git remote add origin https://github.com/13ond21/dog-friendly-uk.git
 git push -u origin main
 ```
 
-**c) Turn on Pages.** In the repo on GitHub: **Settings → Pages → Build and deployment →
+Then in the repo: **Settings → Pages → Build and deployment →
 Source: "Deploy from a branch" → Branch: `main` → `/ (root)` → Save.**
-
-**d) Wait ~1 minute**, then your site is live at:
-
-```
-https://YOUR-USERNAME.github.io/YOUR-REPO/
-```
-
-**e) Update the placeholders.** Search this folder for `YOUR-USERNAME` / `YOUR-REPO`
-and replace in: `index.html` (canonical + og:url), `robots.txt` (Sitemap line),
-`sitemap.xml` (loc + lastmod if you like). Commit and push again.
 
 ## 7. Monetization (AdSense)
 
@@ -166,9 +157,9 @@ copy, and the seed data.
 
 - [ ] Paste real Supabase keys into `index.html`
 - [ ] Verify a handful of listings (pub dog policies and beach dog bans change)
-- [ ] Replace `YOUR-USERNAME` / `YOUR-REPO` in `index.html`, `robots.txt`, `sitemap.xml`
+- [x] Replace `YOUR-USERNAME` / `YOUR-REPO` in `index.html`, `robots.txt`, `sitemap.xml`
 - [ ] Replace `your@email.com` in the footer
 - [ ] Create a 1200×630 `og-image.png` and add it to the repo
-- [ ] Create the GitHub repo, push, and enable Pages (step 6)
+- [x] Create the GitHub repo, push, and enable Pages (step 6)
 - [ ] Apply for AdSense and paste the approved code (step 7)
 
