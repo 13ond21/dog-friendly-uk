@@ -2,7 +2,7 @@
 
 A free directory of **dog-friendly pubs, beaches, walking trails and dog parks** across
 the UK and Ireland — with county-by-county coverage of England, Scotland, Wales,
-Ireland and Northern Ireland (108 regions). A single static HTML page (no framework,
+Ireland and Northern Ireland (113 regions). A single static HTML page (no framework,
 no build step) backed by a Supabase database, designed to be cloned and re-skinned for
 future niche directory sites (wild swimming, mobile dog groomers, etc.).
 
@@ -12,7 +12,7 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 |---|---|
 | `index.html` | The entire site: SEO meta, filters, listing cards, AdSense placeholders, footer |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 1,347 starter listings (108 county-level regions), ready for Supabase's CSV import |
+| `dog-friendly-uk-listings.csv` | 1,620 starter listings (113 county-level regions), ready for Supabase's CSV import |
 | `robots.txt` / `sitemap.xml` | SEO for GitHub Pages |
 | `favicon.svg` | Paw-print favicon |
 | `.gitignore` | Minimal ignore rules |
@@ -80,14 +80,14 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **1,347 rows**.
+5. Click **Import**. You should now see **1,620 rows**.
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).
 
 All listings use **county-level regions** (Antrim, Down, Dublin, Kerry, Galway, Gwynedd,
 Pembrokeshire, Lothian, Highland, Surrey, Dorset, …) so the filters show real coverage —
-108 regions in total.
+113 regions in total.
 
 > If you imported an earlier version of the CSV: **delete the existing rows first**
 > (Table Editor → select rows → Delete), then import the new full CSV — otherwise you
