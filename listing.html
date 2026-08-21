@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#1f6f43">
   <title>Dog-Friendly Spots UK &amp; Ireland</title>
   <meta name="description" content="Dog-friendly pubs, beaches, walking trails and dog parks across the UK and Ireland.">
   <meta name="robots" content="index, follow">
@@ -27,6 +28,15 @@
     }
     * { box-sizing: border-box; }
     [hidden] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    :focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .loading { text-align: center; padding: 40px 0; color: var(--muted); }
+    .spinner {
+      display: inline-block; width: 30px; height: 30px;
+      border: 3px solid var(--border); border-top-color: var(--green);
+      border-radius: 50%; animation: spin .8s linear infinite;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
     body {
       margin: 0; font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
       color: var(--ink); background: var(--bg); line-height: 1.55;
@@ -89,8 +99,9 @@
     </div>
   </header>
 
-  <main class="wrap">
+  <main class="wrap" id="main" tabindex="-1">
     <a class="back" href="index.html">← Back to all listings</a>
+    <div class="loading" id="loading"><span class="spinner" aria-hidden="true"></span><p>Loading…</p></div>
     <div id="listing"></div>
   </main>
 
@@ -112,6 +123,7 @@
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
     const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚻" };
     const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets" };
 
     function slugify(s) {
@@ -182,7 +194,7 @@
       return `
         <article class="card">
           <div class="card-top">
-            <span class="badge ${esc(item.category)}">${esc(label)}</span>
+            <span class="badge ${esc(item.category)}">${CATEGORY_ICONS[item.category] || ""} ${esc(label)}</span>
             ${item.is_featured ? '<span class="badge featured">Featured</span>' : ""}
           </div>
           <h2 class="title">${esc(item.name)}</h2>
@@ -234,6 +246,8 @@
       } catch (err) {
         console.error("Failed to load listing:", err);
         el.innerHTML = '<div class="error"><strong>Couldn\'t load this listing.</strong><br><a href="index.html">Back to all listings</a></div>';
+      } finally {
+        document.getElementById("loading").hidden = true;
       }
     }
 
