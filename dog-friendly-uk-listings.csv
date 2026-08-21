@@ -1765,3 +1765,126 @@ dog-friendly-uk,Clumber Toilets,toilet,Nottinghamshire,Worksop,S80 3AZ,Toilets a
 dog-friendly-uk,Sutton Park Toilets,toilet,West Midlands,Birmingham,B74 2YT,Toilets at the Sutton Park visitor centre.,,false,Opening hours vary — check locally or on the website.,,3,true,true,52.56545,-1.83512
 dog-friendly-uk,Cannock Toilets,toilet,Staffordshire,Rugeley,WS15 2UA,Toilets at the Cannock Chase visitor centre.,,false,Opening hours vary — check locally or on the website.,,3,true,true,52.75025,-1.99406
 dog-friendly-uk,Rivington Toilets,toilet,Lancashire,Horwich,BL6 7RU,Toilets at the Rivington barn visitor centre.,,false,Opening hours vary — check locally or on the website.,,3,true,,53.61035,-2.54917
+dog-friendly-uk,Holland Park,dog_park,London,London,W8 6LU,"A leafy park with a woodland, an orangery and a famous peacock population.",,false
+dog-friendly-uk,Primrose Hill,dog_park,London,London,NW1 8XU,A grassy hill with one of the best views across London.,,false
+dog-friendly-uk,Waterlow Park,dog_park,London,London,N6 5HG,"A hilly park with ponds, kept as 'a garden for the gardenless'.",,false
+dog-friendly-uk,Green Park,dog_park,London,London,W1J 9DZ,A calm royal park of mature trees and open lawns beside the Mall.,,false
+dog-friendly-uk,Nymans Estate,dog_park,West Sussex,Handcross,RH17 6EB,"A National Trust garden and woodland with fine views over the Weald, dogs on leads.",,false
+dog-friendly-uk,Kelling Heath,dog_park,Norfolk,Weybourne,NR25 7HW,A wild heathland of gorse and pine with sea views along the North Norfolk coast.,,false
+dog-friendly-uk,Holt Country Park,dog_park,Norfolk,Holt,NR25 6BN,A peaceful woodland park with easy trails and red squirrels.,,false
+dog-friendly-uk,Westleton Heath,dog_park,Suffolk,Westleton,IP17 3AA,"An open heath of gorse and heather, glorious in late summer.",,false
+dog-friendly-uk,Rendlesham Forest,dog_park,Suffolk,Woodbridge,IP12 3NF,A pine forest with trails and a UFO landing site to investigate.,,false
+dog-friendly-uk,Beningbrough Hall,dog_park,North Yorkshire,York,YO30 1DD,"A grand estate with parkland, walled garden and woodland walks, dogs on leads.",,false
+dog-friendly-uk,Nunnington Hall,dog_park,North Yorkshire,Nunnington,YO62 5UY,A manor house with riverside meadows and a lovely cottage garden.,,false
+dog-friendly-uk,Carsington Water,dog_park,Derbyshire,Ashbourne,DE6 1ST,A huge reservoir with a circular waterside trail and bird hides.,,false
+dog-friendly-uk,Foremark Reservoir,dog_park,Derbyshire,Repton,DE65 6EL,A quiet reservoir with a circular walk through woodland and grassland.,,false
+dog-friendly-uk,Hardwick Hall,dog_park,Derbyshire,Chesterfield,S44 5QJ,"A great Elizabethan house in parkland with lakes, woods and long views, dogs on leads.",,false
+dog-friendly-uk,Calke Abbey,dog_park,Derbyshire,Ticknall,DE73 7LE,"A National Trust estate that time forgot, with parkland and ancient trees, dogs on leads.",,false
+dog-friendly-uk,Kedleston Hall,dog_park,Derbyshire,Kedleston,DE22 5JH,A stately home in sweeping parkland with a lake and a pleasure garden.,,false
+dog-friendly-uk,Haldon Forest Park,dog_park,Devon,Exeter,EX6 7XR,"A forest of pines and oaks above the Exe valley, with views and trails.",,false
+dog-friendly-uk,Hawkcombe Woods,dog_park,Somerset,Porlock,TA24 8HJ,"Ancient oak woodland in a steep Exmoor combe, with a river and hidden pools.",,false
+dog-friendly-uk,Glentress Forest,dog_park,Borders,Peebles,EH45 8NB,A famous mountain-bike forest with miles of walking and panoramic views.,,false
+dog-friendly-uk,Dawyck Botanic Garden,dog_park,Borders,Stobo,EH45 9JU,"A hillside botanic garden with champion trees, dogs on leads.",,false
+dog-friendly-uk,The Haining,dog_park,Borders,Selkirk,TD7 5LN,A beautiful loch-side parkland with mature trees and easy walks.,,false
+dog-friendly-uk,Coed y Brenin,dog_park,Gwynedd,Dolgellau,LL40 2HZ,"A mountain forest with trails, waterfalls and a visitor centre.",,false
+dog-friendly-uk,Garwnant Forest,dog_park,Glamorgan,Merthyr Tydfil,CF48 2HU,A forest park in the Taff valley with a visitor centre and easy trails.,,false
+dog-friendly-uk,Fyfield Down,dog_park,Wiltshire,Marlborough,SN8 1PY,"A wild chalk downland of sarsen stones, with sweeping views.",,false
+dog-friendly-uk,Morden Bog,dog_park,Dorset,Wareham,BH20 7NP,A national nature reserve of heath and bog with rare birds.,,false
+dog-friendly-uk,Vartry Reservoir,dog_park,Wicklow,Roundwood,A98,A scenic reservoir with easy waterside walking below the hills.,,false
+dog-friendly-uk,Farran Woods,dog_park,Cork,Macroom,P12,A peaceful woodland with riverside paths and a picnic area.,,false
+dog-friendly-uk,Burren National Park,trail,Clare,Corofin,V95,"A protected heart of the Burren, with trails across limestone pavement and wildflower terraces.",,false
+dog-friendly-uk,Ards Forest Park,dog_park,Donegal,Creeslough,F92,"A coastal forest with sandy coves, lakes and a network of trails.",,false
+dog-friendly-uk,Lough Key Forest Park,dog_park,Roscommon,Boyle,F52,A lakeside forest park with an adventure centre and a famous tower.,,false
+dog-friendly-uk,Portumna Forest Park,dog_park,Galway,Portumna,H53,A lakeside forest with an avenue of oaks and easy trails.,,false
+dog-friendly-uk,Roe Valley Country Park,dog_park,Derry,Limavady,BT49 9FB,"A riverside park with woods, mills and the Roe running through it.",,false
+dog-friendly-uk,Oxford Island,dog_park,Armagh,Craigavon,BT66 6NJ,A nature reserve on the shores of Lough Neagh with hides and trails.,,false
+dog-friendly-uk,Mount Stewart,dog_park,Down,Newtownards,BT22 2AD,"A National Trust estate with gardens, lakeside and woodland walks, dogs on leads.",,false
+dog-friendly-uk,Croome,dog_park,Worcestershire,Severn Stoke,WR8 9DW,"A National Trust estate with a lake, parkland and a curious history, dogs on leads.",,false
+dog-friendly-uk,Dudmaston Estate,dog_park,Shropshire,Quatt,WV15 6QN,"A family estate with parkland, woods and the river Severn below, dogs on leads.",,false
+dog-friendly-uk,Llanerchaeron,dog_park,Ceredigion,Aberaeron,SA46 0SA,"A Welsh National Trust estate with walled garden, park and river walk.",,false
+dog-friendly-uk,Erddig,dog_park,Wrexham,Wrexham,LL13 0YT,"A grand estate with parkland, a canal and a walled garden, dogs on leads.",,false
+dog-friendly-uk,Wimpole Estate,dog_park,Cambridgeshire,Arrington,SG8 0BW,"A great estate with a park, lakes and the tallest folly in Britain.",,false
+dog-friendly-uk,Anglesey Abbey,dog_park,Cambridgeshire,Lode,CB25 9EJ,"A National Trust garden with trees, statues and winter walks, dogs on leads.",,false
+dog-friendly-uk,Melford Hall,dog_park,Suffolk,Long Melford,CO10 9AA,"An Elizabethan manor with parkland and gardens, dogs on leads.",,false
+dog-friendly-uk,Stourhead,dog_park,Wiltshire,Stourton,BA12 6QF,"A world-famous landscape garden with a lake and classical temples, dogs on leads.",,false
+dog-friendly-uk,Buscot Park,dog_park,Oxfordshire,Faringdon,SN7 8BU,"A country house with water gardens and parkland, dogs on leads.",,false
+dog-friendly-uk,Basildon Park,dog_park,Berkshire,Pangbourne,RG8 8NR,"A neo-classical mansion in parkland with river views, dogs on leads.",,false
+dog-friendly-uk,Bodiam Castle,dog_park,East Sussex,Robertsbridge,TN32 5UA,"A moated castle with meadows and a mill pond to walk around, dogs on leads.",,false
+dog-friendly-uk,Gawsworth Hall,dog_park,Cheshire,Macclesfield,SK11 9RN,"A Tudor hall with a lake and gardens, dogs on leads.",,false
+dog-friendly-uk,Chirk Castle,dog_park,Wrexham,Chirk,LL14 5AF,"A marcher castle with parkland, woods and fine views into England.",,false
+dog-friendly-uk,Powis Castle,dog_park,Powys,Welshpool,SY21 8RF,"A castle with terraced gardens and parkland, dogs on leads.",,false
+dog-friendly-uk,Ragley Hall,dog_park,Warwickshire,Alcester,B49 5NJ,"A grand country house with parkland, woods and lakeside walks.",,false
+dog-friendly-uk,The Cornish Arms,pub,Cornwall,Pendoggett,PL30 3HH,"A grand coaching inn in a quiet village, known for open fires and superb Sunday roasts. Dogs are welcome in the bar and the garden.",,false
+dog-friendly-uk,The Mariners,pub,Cornwall,Portloe,TR2 5RD,"A tiny 16th-century pub in a fishing cove, reached down a steep lane. The terrace has one of the best harbour views in Cornwall.",,false
+dog-friendly-uk,The Old Coastguard,pub,Cornwall,Mousehole,TR19 6PR,A relaxed hotel pub with a big terrace overlooking Mount's Bay. Muddy boots and wet dogs are welcome after a coastal walk.,,false
+dog-friendly-uk,The Springer Spaniel,pub,Cornwall,Treburley,PL15 7NL,"A friendly country inn on the edge of Bodmin Moor, named for the breed. Real ales, generous plates and a proper dog welcome.",,false
+dog-friendly-uk,The Halzephron,pub,Cornwall,Gunwalloe,TR12 7QB,A clifftop inn with huge views over Mount's Bay and a garden that runs down to the coast path. Dogs are welcome throughout.,,false
+dog-friendly-uk,The Ring O' Bells,pub,Cornwall,St Minver,PL27 6QN,"A welcoming village pub near the Camel estuary, popular with walkers and their dogs.",,false
+dog-friendly-uk,The Falcon,pub,Cornwall,St Mawgan,TR8 4EU,"A whitewashed inn in a pretty village, with a stream-side garden and a proper local feel.",,false
+dog-friendly-uk,The London Inn,pub,Cornwall,Padstow,PL28 8AL,"A busy old town pub with beams and flagstones, a short stroll from the harbour. Dogs get a bowl and a biscuit.",,false
+dog-friendly-uk,The Anchor Inn,pub,Devon,Cockwood,EX8 5HB,A waterside pub on the Exe estuary with views over the mudflats and boats. Dogs are welcome in the bar and garden.,,false
+dog-friendly-uk,The Ferry Boat Inn,pub,Devon,Shaldon,TQ14 0DT,"A classic riverside inn at the mouth of the Teign, with a famous ferry connection. The garden is right on the water.",,false
+dog-friendly-uk,The Farmers Arms,pub,Devon,Mortehoe,EX34 7DX,"A proper Exmoor-coast pub with low beams and a roaring fire, a short walk from the cliffs.",,false
+dog-friendly-uk,The Kings Arms,pub,Devon,Christow,EX6 7LX,A friendly village pub on the edge of Dartmoor with a river garden and local ales.,,false
+dog-friendly-uk,The Drewe Arms,pub,Devon,Drewsteignton,EX6 6QT,"A much-loved community-owned pub beside the church, with simple food and a warm welcome for dogs.",,false
+dog-friendly-uk,The Jack in the Green,pub,Devon,Rockbeare,EX5 2EE,"A lively coaching inn with a big garden, popular with dog walkers from the nearby woods.",,false
+dog-friendly-uk,The First and Last Inn,pub,Devon,Winkleigh,EX19 8BN,"A proper old inn on the edge of the moor, named for the last stop before the wilderness.",,false
+dog-friendly-uk,The Anchor at Beer,pub,Devon,Beer,EX12 3EW,A seafront pub in a smuggler's cove with views over the pebble beach. Dogs welcome by the fire.,,false
+dog-friendly-uk,The Waterside Inn,pub,Devon,Teignmouth,TQ14 8AD,"A seafront pub with estuary views and a sunny terrace, a short walk from the sands.",,false
+dog-friendly-uk,The Palk Arms,pub,Devon,Hennock,TQ13 9QH,"A quiet country pub above the Teign valley, popular with walkers on the local trails.",,false
+dog-friendly-uk,The Queens Head,pub,Cumbria,Troutbeck,LA23 1HL,"A traditional inn at the heart of the village, with open fires and fine views across the valley.",,false
+dog-friendly-uk,The Wateredge Inn,pub,Cumbria,Ambleside,LA22 0EP,"A lakeside inn right on the shore of Windermere, with a terrace over the water. Dogs are welcome.",,false
+dog-friendly-uk,The Britannia Inn,pub,Cumbria,Elterwater,LA22 9HP,"A classic Lakeland pub in the Langdale valley, with a stream-side garden and great walking from the door.",,false
+dog-friendly-uk,The Three Shires Inn,pub,Cumbria,Little Langdale,LA22 9NY,"A whitewashed inn at the head of the valley, popular with fell walkers and their dogs.",,false
+dog-friendly-uk,The Old Dungeon Ghyll,pub,Cumbria,Great Langdale,LA22 9JY,"A legendary walkers' pub at the foot of the Langdale Pikes, with a huge log fire.",,false
+dog-friendly-uk,The Wasdale Head Inn,pub,Cumbria,Wasdale,CA20 1EX,"The inn beneath Scafell Pike, steeped in climbing history and open fires. Dogs are part of the furniture.",,false
+dog-friendly-uk,"The King's Head, Ambleside",pub,Cumbria,Ambleside,LA22 9BU,"A 17th-century inn in the old town, with beams, flagstones and a proper welcome for dogs.",,false
+dog-friendly-uk,The Sun Inn,pub,Cumbria,Coniston,LA21 8HQ,"A lively inn in the village square, close to the lake and the Old Man. Dogs welcome at the bar.",,false
+dog-friendly-uk,The Pheasant,pub,Cumbria,Bassenthwaite,CA13 9YE,A characterful inn with beams and open fires near the wildfowl lake.,,false
+dog-friendly-uk,The Boot Inn,pub,Cumbria,Eskdale,CA19 1TG,"A friendly inn in the Eskdale valley, close to the railway and the waterfall walks.",,false
+dog-friendly-uk,The Star Inn,pub,North Yorkshire,Harome,YO62 5JE,"A Michelin-listed pub in a pretty village, with a thatched roof and a genuinely dog-friendly bar.",,false
+dog-friendly-uk,The Green Dragon,pub,North Yorkshire,Hardraw,DL8 3LZ,"Famous for sitting behind England's highest waterfall, with a roaring fire and good food.",,false
+dog-friendly-uk,The Black Swan,pub,North Yorkshire,Helmsley,YO62 5BJ,"A historic coaching inn in the market square, handy for the abbey and the moors.",,false
+dog-friendly-uk,The Lion Inn,pub,North Yorkshire,Blakey Ridge,YO62 7LQ,"One of England's highest pubs, on the moorland ridge with huge views.",,false
+dog-friendly-uk,The Board Inn,pub,North Yorkshire,Lealholm,YO21 2AL,"A friendly village inn beside the River Esk, with a big garden and a proper local feel.",,false
+dog-friendly-uk,The Blue Bell,pub,North Yorkshire,Hunton,DL8 1QB,"A village pub with open fires and a warm welcome, on the edge of the Dales.",,false
+dog-friendly-uk,The White Hart,pub,North Yorkshire,Masham,HG4 4EN,"A historic inn in the brewing town of Masham, with real ales and good food.",,false
+dog-friendly-uk,The Queen's Head,pub,North Yorkshire,Osmotherley,DL6 3AA,"A proper walkers' pub on the Cleveland Way, with a stream-side garden and good ales.",,false
+dog-friendly-uk,The Moon Inn,pub,Derbyshire,Stoney Middleton,S32 4TL,"A 16th-century inn in a limestone village, with beams, fires and a fine garden.",,false
+dog-friendly-uk,The Little John,pub,Derbyshire,Hathersage,S32 1BB,"A friendly pub named for Robin Hood's man, at the foot of Stanage Edge.",,false
+dog-friendly-uk,The Scotsman's Pack,pub,Derbyshire,Hathersage,S32 1BB,"A walkers' pub close to the station and the moor paths, with a big garden.",,false
+dog-friendly-uk,"The George, Castleton",pub,Derbyshire,Castleton,S33 8WH,"A historic inn in the show-cave village, handy for Mam Tor and the caverns.",,false
+dog-friendly-uk,The Cheshire Cheese,pub,Derbyshire,Hope,S33 6RH,"A friendly village pub in the Hope Valley, popular with walkers and climbers.",,false
+dog-friendly-uk,The Packhorse Inn,pub,Derbyshire,Little Longstone,DE45 1NN,A whitewashed inn with a stream-side garden in the pretty Wye valley.,,false
+dog-friendly-uk,The Nags Head,pub,Derbyshire,Edale,S33 7ZA,"A walkers' pub at the start of the Pennine Way, with a roaring fire in winter.",,false
+dog-friendly-uk,The Barrel Inn,pub,Derbyshire,Bretton,S32 5QE,"A high moorland inn with huge views, reached along the edge of Eyam Moor.",,false
+dog-friendly-uk,The Bear,pub,Powys,Crickhowell,NP8 1BW,"A grand coaching inn in the market town, with a courtyard and a proper dog welcome.",,false
+dog-friendly-uk,The Penhelig Arms,pub,Gwynedd,Aberdyfi,LL35 0LT,"A harbour-side inn on the estuary, with sea views and a lovely garden.",,false
+dog-friendly-uk,"The Sun Inn, Tal-y-Llyn",pub,Gwynedd,Tal-y-Llyn,LL36 9SG,"A lakeside inn beneath Cader Idris, with fires and mountain views.",,false
+dog-friendly-uk,The Eagles Hotel,pub,Conwy,Llanrwst,LL26 0LG,"A riverside hotel pub on the Conwy, with a big garden and fine views.",,false
+dog-friendly-uk,"The King's Head, Llandudno",pub,Conwy,Llandudno,LL30 2HX,"A characterful pub near the pier, with a proper Victorian feel and a dog-friendly bar.",,false
+dog-friendly-uk,The Bluebell,pub,Denbighshire,Halkyn,CH8 8DL,"A hilltop inn with huge views over the Dee estuary, popular with walkers.",,false
+dog-friendly-uk,The Bridge End,pub,Conwy,Llanrwst,LL26 0EH,"A riverside pub on the edge of town, with a terrace over the Conwy.",,false
+dog-friendly-uk,The Old Point House,pub,Pembrokeshire,Angle,SA71 5AS,"A tiny 500-year-old pub right on the beach, with a fire and sea views.",,false
+dog-friendly-uk,The Shore,pub,Lothian,Leith,EH6 6QN,A stylish gastropub in Leith with a proper dog welcome and a great seafood menu.,,false
+dog-friendly-uk,"The Ship, Elie",pub,Fife,Elie,KY9 1BZ,"A beach-front pub on the Fife coast, with sea views and a proper local bar.",,false
+dog-friendly-uk,The Crusoe,pub,Fife,Lower Largo,KY8 6BT,"A seafront bar named for Robinson Crusoe, with decks over the beach.",,false
+dog-friendly-uk,The Clermiston,pub,Lothian,Edinburgh,EH4 7EN,A friendly Edinburgh local with a big garden and a genuinely dog-friendly bar.,,false
+dog-friendly-uk,The Blue Blazer,pub,Lothian,Edinburgh,EH1 3LN,A proper old-school Edinburgh pub with a great whisky list and a warm welcome.,,false
+dog-friendly-uk,The Stockbridge Tap,pub,Lothian,Edinburgh,EH3 6SE,A craft-beer bar in Stockbridge with a genuinely dog-friendly room.,,false
+dog-friendly-uk,The Moulin Inn,pub,Perthshire,Pitlochry,PH16 5EH,"A historic inn beside its own brewery, with fires and a proper welcome.",,false
+dog-friendly-uk,The Scran & Scallie,pub,Lothian,Edinburgh,EH4 1BU,"A popular gastropub serving hearty Scottish classics, with dogs welcome at the bar.",,false
+dog-friendly-uk,The Anchor Bar,pub,Down,Newcastle,BT33 0AA,"A cosy bar in the seaside town, popular with walkers from the Mournes.",,false
+dog-friendly-uk,The Percy French,pub,Down,Newcastle,BT33 0AL,"A friendly hotel bar overlooking the promenade, with the mountains behind.",,false
+dog-friendly-uk,The Harbour Bar,pub,Antrim,Portrush,BT56 8BN,A classic seaside bar with a grand interior and a proper welcome.,,false
+dog-friendly-uk,The Deer's Head,pub,Antrim,Belfast,BT1 2AF,A lively city-centre pub with an open kitchen and a dog-friendly bar.,,false
+dog-friendly-uk,The Sunflower,pub,Antrim,Belfast,BT1 1PD,"A proper Belfast pub with a famous beer garden, popular with dog owners.",,false
+dog-friendly-uk,The Back Page,pub,Dublin,Dublin,D07,"A sporty, friendly pub with a big covered garden and a genuinely dog-friendly vibe.",,false
+dog-friendly-uk,The Glimmerman,pub,Dublin,Dublin,D07,"A small, welcoming craft-beer bar on the northside, happy to see well-behaved dogs.",,false
+dog-friendly-uk,The Black Sheep,pub,Dublin,Dublin,D01,"A relaxed craft-beer pub with a courtyard, known for its dog-friendly policy.",,false
+dog-friendly-uk,The Long Hall,pub,Dublin,Dublin,D08,A gloriously ornate Victorian pub with a snug and a warm welcome for locals and dogs.,,false
+dog-friendly-uk,The Trout Inn,pub,Oxfordshire,Wolvercote,OX2 8DP,"A riverside pub beside the Thames near Oxford, with a big garden and a proper welcome.",,false
+dog-friendly-uk,The Porch House,pub,Gloucestershire,Stow-on-the-Wold,GL54 1BN,"Claimed to be England's oldest inn, with fires, flagstones and a dog-friendly bar.",,false
+dog-friendly-uk,The New Inn,pub,Gloucestershire,Stanton,WR12 7NE,"A classic Cotswold pub in a picture-perfect village, with a lovely garden.",,false
+dog-friendly-uk,"The Crown, Amersham",pub,Buckinghamshire,Amersham,HP7 0DH,"A grand coaching inn in the old town, with a fine bar and a proper welcome.",,false
+dog-friendly-uk,The Plough at Cadsden,pub,Buckinghamshire,Princes Risborough,HP27 0NB,"A hillside pub above the Chilterns, famous for its sweeping view over the vale.",,false
