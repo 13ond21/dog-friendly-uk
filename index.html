@@ -175,7 +175,21 @@
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
-    .link { margin-top: auto; font-weight: 600; font-size: .9rem; }
+    .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn {
+      display: inline-block;
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-size: .85rem;
+      font-weight: 600;
+      text-decoration: none;
+      border: 1px solid var(--border);
+      background: #fff;
+      color: var(--ink);
+    }
+    .btn:hover { border-color: var(--green); }
+    .btn-primary { background: var(--green); border-color: var(--green); color: #fff; }
+    .btn-primary:hover { background: var(--green-dark); }
 
     /* States */
     .notice, .error, .empty {
@@ -377,20 +391,31 @@
     }
 
     /* ---------------- rendering ---------------- */
+    function mapsQuery(item) {
+      return [item.name, item.town, item.region].filter(Boolean).join(", ");
+    }
+
     function cardHTML(item) {
       const badge = `<span class="badge ${esc(item.category)}">${esc(CATEGORY_LABELS[item.category] || item.category)}</span>`;
       const featured = item.is_featured ? `<span class="badge featured">Featured</span>` : "";
       const location = [item.town, item.region, item.postcode].filter(Boolean).join(" · ");
+      const q = encodeURIComponent(mapsQuery(item));
       const website = item.website
-        ? `<a class="link" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
+        ? `<a class="btn btn-primary" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
         : "";
+      const maps = `
+        <div class="actions">
+          ${website}
+          <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${q}" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">Google Maps</a>
+          <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>
+        </div>`;
       return `
         <article class="card">
           <div class="card-top">${featured}${badge}</div>
           <h2>${esc(item.name)}</h2>
           <p class="meta">${esc(location)}</p>
           <p class="desc">${esc(item.description)}</p>
-          ${website}
+          ${maps}
         </article>`;
     }
 

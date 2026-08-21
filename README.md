@@ -27,6 +27,9 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 - The page also emits **schema.org structured data** (JSON-LD `WebSite` + `ItemList`) so
   search engines understand the listings, plus region quick-link chips for better crawling
   and navigation.
+- Every listing card has **Google Maps** and **Apple Maps** buttons (address-search links
+  built from name + town + region) so visitors can find the spot and get directions in
+  their preferred maps app — no per-listing GPS coordinates needed.
 
 ---
 
