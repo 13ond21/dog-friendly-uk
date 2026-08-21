@@ -10,10 +10,12 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 
 | File | Purpose |
 |---|---|
-| `index.html` | The entire site: SEO meta, filters, listing cards, AdSense placeholders, footer |
+| `index.html` | The directory home page: SEO meta, filters, listing cards, AdSense placeholders, footer |
+| `listing.html` | Per-listing detail pages (`listing.html?slug=…`) with their own title, meta and JSON-LD — so every one of the 1,766 places is individually indexable |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 1,766 starter listings (113 regions), ready for Supabase's CSV import |
-| `robots.txt` / `sitemap.xml` | SEO for GitHub Pages |
+| `dog-friendly-uk-listings.csv` | 1,766 starter listings, ready for Supabase's CSV import |
+| `sitemap.xml` | 1,767 URLs (homepage + every listing) — submit to Google Search Console |
+| `robots.txt` / `og-image.png` | Crawling rules + social share image (1200×630) |
 | `favicon.svg` | Paw-print favicon |
 | `.gitignore` | Minimal ignore rules |
 
@@ -114,8 +116,8 @@ Google/Apple Maps).
 
 ## 4. Add your Supabase keys to the site
 
-Open `index.html` and scroll to the `CONFIG` block at the bottom of the file.
-Paste your **Project URL** and **anon public** key into the two constants:
+Open `index.html` **and** `listing.html` and scroll to the `CONFIG` blocks (they must stay
+in sync). Paste your **Project URL** and **anon public** key into the two constants in both files:
 
 ```js
 const SUPABASE_URL = "https://abcdefgh.supabase.co";
@@ -163,7 +165,10 @@ Source: "Deploy from a branch" → Branch: `main` → `/ (root)` → Save.**
 1. Apply at <https://adsense.google.com> once the site is live and has some content.
 2. While waiting, submit the sitemap to Google Search Console:
    `https://search.google.com/search-console` → add your property → Sitemaps →
-   submit `sitemap.xml`.
+   submit `sitemap.xml`. It contains the homepage plus all **1,766 listing URLs** —
+   each one is a real page (`listing.html?slug=…`) with its own title, meta
+   description and schema.org `Place` structured data, so individual places can rank
+   for searches like "Holkham Beach dog friendly".
 3. When approved, follow the big `GOOGLE ADSENSE` comments inside `index.html`:
    paste the AdSense `<script>` tag into the `<head>`, then paste your ad unit's
    `<ins>` code into the `AD-SLOT-TOP` / `AD-SLOT-BOTTOM` divs in the body.
