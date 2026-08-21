@@ -33,6 +33,12 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 - The search box accepts **postcodes** (full or partial, UK & Irish, e.g. `LA23`, `SW1`,
   `BT7`, `D13`) and shows the dog-friendly spots in that area using a built-in
   postcode-area → region map.
+- Listings can be **sorted**: Recommended (featured first), **Most popular** (editorial
+  popularity score), Name (A–Z), or **Closest to postcode** (area matched to your postcode).
+- Cards show **opening hours** where known (outdoor spaces are "open all year, dawn to
+  dusk"), a **website** button, and — for toilet listings — **♿ accessible** and
+  **🍼 baby change** flags where confirmed. A `phone` column is ready in the schema but
+  is left blank rather than ship unverified numbers.
 - There's a **Toilets** filter (curated starter list) plus a **"Toilets near me"** button
   in the header that returns live public-toilet results for the visitor's location via
   Google/Apple Maps.
@@ -89,7 +95,7 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **1,766 rows**.
+5. Click **Import**. You should now see **1,766 rows** (14 columns).
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).

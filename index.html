@@ -177,6 +177,12 @@
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
+    .facilities { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
+    .facility {
+      font-size: .75rem; font-weight: 600; padding: 3px 8px;
+      border-radius: 999px; background: var(--bg);
+      border: 1px solid var(--border); color: var(--muted);
+    }
     .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
     .btn {
       display: inline-block;
@@ -273,6 +279,15 @@
           <option value="all">All regions</option>
         </select>
       </div>
+      <div>
+        <label class="sr-only" for="sort">Sort listings</label>
+        <select id="sort">
+          <option value="recommended">Sort: Recommended</option>
+          <option value="popular">Most popular</option>
+          <option value="name">Name (A–Z)</option>
+          <option value="closest">Closest to postcode</option>
+        </select>
+      </div>
     </div>
   </section>
 
@@ -356,11 +371,12 @@
 
     const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
 
-    const state = { all: [], category: "all", region: "all", query: "" };
+    const state = { all: [], category: "all", region: "all", query: "", sort: "recommended" };
 
     const els = {
       search: document.getElementById("search"),
       region: document.getElementById("region"),
+      sort: document.getElementById("sort"),
       categoryButtons: document.querySelectorAll("[data-category]"),
       count: document.getElementById("count"),
       grid: document.getElementById("listings"),
@@ -451,10 +467,31 @@
       return { regions, outward: norm };
     }
 
+    function sortList(list) {
+      const s = state.sort;
+      if (s === "name") return [...list].sort((a, b) => a.name.localeCompare(b.name));
+      if (s === "popular") {
+        return [...list].sort((a, b) =>
+          (b.popularity || 3) - (a.popularity || 3) || a.name.localeCompare(b.name));
+      }
+      if (s === "closest") {
+        const pc = postcodeAreasFor(state.query);
+        if (!pc) return list; // no postcode to be closest to
+        return [...list].sort((a, b) => {
+          const am = pc.regions.includes(a.region) ? 0 : 1;
+          const bm = pc.regions.includes(b.region) ? 0 : 1;
+          return am - bm || a.name.localeCompare(b.name);
+        });
+      }
+      // recommended: featured first, then A-Z
+      return [...list].sort((a, b) =>
+        (b.is_featured ? 1 : 0) - (a.is_featured ? 1 : 0) || a.name.localeCompare(b.name));
+    }
+
     function getFiltered() {
       const q = state.query.trim().toLowerCase();
       const pc = postcodeAreasFor(q);
-      return state.all.filter((item) => {
+      const list = state.all.filter((item) => {
         if (state.category !== "all" && item.category !== state.category) return false;
         if (state.region !== "all" && item.region !== state.region) return false;
         if (q) {
@@ -471,6 +508,7 @@
         }
         return true;
       });
+      return sortList(list);
     }
 
     /* ---------------- rendering ---------------- */
@@ -494,12 +532,20 @@
           <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${nearestLoos}" target="_blank" rel="noopener noreferrer" title="Nearest public toilets to this place">🚻 Nearest toilets</a>
         </div>`;
+      const opening = item.opening_hours ? `<p class="meta">🕒 ${esc(item.opening_hours)}</p>` : "";
+      const phone = item.phone
+        ? `<p class="meta">📞 <a href="tel:${esc(String(item.phone).replace(/\s+/g, ""))}">${esc(item.phone)}</a></p>`
+        : "";
+      const facilities = item.category === "toilet"
+        ? `<div class="facilities">${item.wheelchair_accessible ? '<span class="facility">♿ Accessible</span>' : ""}${item.baby_change ? '<span class="facility">🍼 Baby change</span>' : ""}</div>`
+        : "";
       return `
         <article class="card">
           <div class="card-top">${featured}${badge}</div>
           <h2>${esc(item.name)}</h2>
           <p class="meta">${esc(location)}</p>
           <p class="desc">${esc(item.description)}</p>
+          ${opening}${phone}${facilities}
           ${maps}
         </article>`;
     }
@@ -587,6 +633,7 @@
     function bindEvents() {
       els.search.addEventListener("input", (e) => { state.query = e.target.value; render(); });
       els.region.addEventListener("change", (e) => { state.region = e.target.value; syncChipsFromDropdown(); render(); });
+      els.sort.addEventListener("change", (e) => { state.sort = e.target.value; render(); });
       els.categoryButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           els.categoryButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));

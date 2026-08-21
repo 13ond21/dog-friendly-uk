@@ -15,6 +15,11 @@ create table if not exists public.listings (
   description    text,
   website        text,
   is_featured    boolean   not null default false, -- used later for paid featured listings
+  opening_hours  text,                              -- e.g. "Open all year (outdoor space, dawn to dusk)"
+  phone          text,
+  popularity     integer   not null default 3,      -- editorial 1-5 for "Most popular" sorting
+  wheelchair_accessible boolean,                    -- toilets: where confirmed
+  baby_change    boolean,                           -- toilets: where confirmed
   created_at     timestamptz not null default now()
 );
 
@@ -24,6 +29,13 @@ create table if not exists public.listings (
 alter table public.listings drop constraint if exists listings_category_check;
 alter table public.listings add constraint listings_category_check
   check (category in ('pub', 'beach', 'trail', 'dog_park', 'toilet'));
+
+-- 1c) Columns added in later versions of the schema (safe to run on older DBs) --
+alter table public.listings add column if not exists opening_hours text;
+alter table public.listings add column if not exists phone text;
+alter table public.listings add column if not exists popularity integer not null default 3;
+alter table public.listings add column if not exists wheelchair_accessible boolean;
+alter table public.listings add column if not exists baby_change boolean;
 
 -- 2) Indexes for fast filtering -----------------------------------------------
 create index if not exists listings_directory_slug_idx on public.listings (directory_slug);
