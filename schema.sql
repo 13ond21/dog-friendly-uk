@@ -8,7 +8,7 @@ create table if not exists public.listings (
   id             bigint generated always as identity primary key,
   directory_slug text      not null default 'dog-friendly-uk',
   name           text      not null,
-  category       text      not null check (category in ('pub', 'beach', 'trail', 'dog_park', 'toilet')),
+  category       text      not null check (category in ('pub', 'beach', 'trail', 'dog_park', 'toilet', 'accommodation')),
   region         text      not null,
   town           text,
   postcode       text,
@@ -30,7 +30,7 @@ create table if not exists public.listings (
 --  script safe to re-run on a database that was created before dog parks existed.)
 alter table public.listings drop constraint if exists listings_category_check;
 alter table public.listings add constraint listings_category_check
-  check (category in ('pub', 'beach', 'trail', 'dog_park', 'toilet'));
+  check (category in ('pub', 'beach', 'trail', 'dog_park', 'toilet', 'accommodation'));
 
 -- 1c) Columns added in later versions of the schema (safe to run on older DBs) --
 alter table public.listings add column if not exists opening_hours text;

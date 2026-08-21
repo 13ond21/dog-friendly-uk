@@ -13,7 +13,7 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 | `index.html` | The directory home page: SEO meta, filters, listing cards, AdSense placeholders, footer |
 | `listing.html` | Per-listing detail pages (`listing.html?slug=…`) with their own title, meta and JSON-LD — so every one of the 1,766 places is individually indexable |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 2,056 starter listings (133 regions — every UK &amp; Irish county covered), ready for Supabase's CSV import |
+| `dog-friendly-uk-listings.csv` | 2,172 starter listings (133 regions — every UK &amp; Irish county covered), ready for Supabase's CSV import |
 | `sitemap.xml` | 1,767 URLs (homepage + every listing) — submit to Google Search Console |
 | `robots.txt` / `og-image.png` | Crawling rules + social share image (1200×630) |
 | `favicon.svg` | Paw-print favicon |
@@ -101,14 +101,16 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **2,056 rows** (16 columns).
+5. Click **Import**. You should now see **2,172 rows** (16 columns).
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).
 
-Balance: **231 pubs · 609 dog parks · 623 trails · 447 beaches · 146 toilets**.
+Balance: **231 pubs · 609 dog parks · 623 trails · 447 beaches · 146 toilets ·
+116 pet-friendly hotels &amp; accommodation**.
 Every county of England, Wales, Scotland, Northern Ireland and Ireland is covered
-(133 region values).
+(133 region values). Categories are `pub`, `beach`, `trail`, `dog_park`, `toilet`
+and `accommodation`.
 
 All listings use **county-level regions** (Antrim, Down, Dublin, Kerry, Galway, Gwynedd,
 Pembrokeshire, Lothian, Highland, Surrey, Dorset, …) so the filters show real coverage —

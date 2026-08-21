@@ -216,6 +216,7 @@
     .badge.trail  { background: var(--green); }
     .badge.dog_park { background: #7a3fb5; }
     .badge.toilet { background: #0f766e; }
+    .badge.accommodation { background: #4338ca; }
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
@@ -348,6 +349,7 @@
         <button type="button" class="cat-btn" data-category="trail" aria-pressed="false">Trails</button>
         <button type="button" class="cat-btn" data-category="dog_park" aria-pressed="false">Dog Parks</button>
         <button type="button" class="cat-btn" data-category="toilet" aria-pressed="false">Toilets</button>
+        <button type="button" class="cat-btn" data-category="accommodation" aria-pressed="false">Accommodation</button>
       </div>
       <div>
         <label class="sr-only" for="region">Filter by region</label>
@@ -448,6 +450,12 @@
     <a class="browse-link" href="?category=toilet&amp;region=Cornwall">Dog-friendly toilets in Cornwall</a>
     <a class="browse-link" href="?category=toilet&amp;region=London">Dog-friendly toilets in London</a>
     <a class="browse-link" href="?category=toilet&amp;region=Devon">Dog-friendly toilets in Devon</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=Cornwall">Dog-friendly accommodation in Cornwall</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=Devon">Dog-friendly accommodation in Devon</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=Cumbria">Dog-friendly accommodation in Cumbria</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=North%20Yorkshire">Dog-friendly accommodation in North Yorkshire</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=Kerry">Dog-friendly accommodation in Kerry</a>
+    <a class="browse-link" href="?category=accommodation&amp;region=London">Dog-friendly accommodation in London</a>
 </div>
   </section>
 
@@ -520,8 +528,8 @@
        (e.g. "wild-swimming", "mobile-dog-groomers"). */
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨" };
 
     const state = { all: [], category: "all", region: "all", query: "", sort: "recommended", userLoc: null };
 

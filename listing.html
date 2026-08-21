@@ -65,6 +65,7 @@
     .badge.trail { background: var(--green); }
     .badge.dog_park { background: #7a3fb5; }
     .badge.toilet { background: #0f766e; }
+    .badge.accommodation { background: #4338ca; }
     .badge.featured { background: #141b16; }
     h2.title { margin: 0 0 4px; font-size: 1.7rem; line-height: 1.25; }
     .meta { color: var(--muted); font-size: .95rem; margin: 6px 0; }
@@ -122,9 +123,9 @@
     const SUPABASE_ANON_KEY = "sb_publishable__2wVD38i889qSDDNUYejNw_c6MKp0Ww";
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽" };
-    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨" };
+    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets", accommodation: "accommodation" };
 
     function slugify(s) {
       return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
