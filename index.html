@@ -533,6 +533,15 @@
        (e.g. "wild-swimming", "mobile-dog-groomers"). */
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
+    /* ============================================================
+       AFFILIATE — "Book on Booking.com" button on accommodation cards.
+       Works now as a plain hotel search; add your Booking.com partner
+       id (free signup: https://www.booking.com/affiliate-programme-v2.html)
+       to start earning commission on bookings.
+       ============================================================ */
+    const AFFILIATE_BOOKING_AID = "";            // e.g. "1234567"
+    const AFFILIATE_BOOKING_LABEL = "dog-friendly-uk";
+
     const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation" };
     const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨" };
 
@@ -745,17 +754,33 @@
       return mapsQuery(item);
     }
 
+    /* Booking.com search URL for a listing — the "#1" booking button
+       on accommodation cards. Appends the affiliate id when configured. */
+    function bookingUrl(item) {
+      const q = encodeURIComponent([item.name, item.town, item.region].filter(Boolean).join(", "));
+      return "https://www.booking.com/searchresults.html?ss=" + q +
+        (AFFILIATE_BOOKING_AID
+          ? "&aid=" + encodeURIComponent(AFFILIATE_BOOKING_AID) +
+            "&label=" + encodeURIComponent(AFFILIATE_BOOKING_LABEL)
+          : "");
+    }
+
     function cardHTML(item) {
       const badge = `<span class="badge ${esc(item.category)}">${CATEGORY_ICONS[item.category] || ""} ${esc(CATEGORY_LABELS[item.category] || item.category)}</span>`;
       const featured = item.is_featured ? `<span class="badge featured">Featured</span>` : "";
       const location = [item.town, item.region, item.postcode].filter(Boolean).join(" · ");
       const q = encodeURIComponent(placeQuery(item));
       const nearestLoos = encodeURIComponent("public toilets near " + mapsQuery(item));
+      const isStay = item.category === "accommodation";
+      const booking = isStay
+        ? `<a class="btn btn-primary" href="${esc(bookingUrl(item))}" target="_blank" rel="sponsored noopener noreferrer" title="Search rates on Booking.com">🛏️ Book on Booking.com</a>`
+        : "";
       const website = item.website
-        ? `<a class="btn btn-primary" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
+        ? `<a class="btn ${isStay ? "" : "btn-primary"}" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
         : "";
       const maps = `
         <div class="actions">
+          ${booking}
           ${website}
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${q}" target="_blank" rel="noopener noreferrer" title="Open in Google Maps">Google Maps</a>
           <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>

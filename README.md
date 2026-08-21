@@ -174,7 +174,7 @@ Source: "Deploy from a branch" → Branch: `main` → `/ (root)` → Save.**
 1. Apply at <https://adsense.google.com> once the site is live and has some content.
 2. While waiting, submit the sitemap to Google Search Console:
    `https://search.google.com/search-console` → add your property → Sitemaps →
-   submit `sitemap.xml`. It contains the homepage plus all **1,766 listing URLs** —
+   submit `sitemap.xml`. It contains the homepage plus all **2,172 listing URLs** —
    each one is a real page (`listing.html?slug=…`) with its own title, meta
    description and schema.org `Place` structured data, so individual places can rank
    for searches like "Holkham Beach dog friendly".
@@ -183,6 +183,23 @@ Source: "Deploy from a branch" → Branch: `main` → `/ (root)` → Save.**
    `<ins>` code into the `AD-SLOT-TOP` / `AD-SLOT-BOTTOM` divs in the body.
 4. Replace `your@email.com` in the footer with your real address — the "Suggest a
    listing" link doubles as your outreach channel to businesses.
+
+### Affiliate bookings ("Book this stay")
+
+Every **accommodation** listing already shows a **Booking.com** button — the #1
+booking button — plus Hotels.com, Airbnb and Google Hotels on the detail page.
+The links work today as plain hotel searches for that hotel/area. To start
+earning commission:
+
+| Partner | Where to sign up | What to do |
+|---|---|---|
+| **Booking.com** (priority) | <https://www.booking.com/affiliate-programme-v2.html> | Paste your numeric partner id into `AFFILIATE.bookingAid` in `listing.html` (and `AFFILIATE_BOOKING_AID` in `index.html`). Optionally set `AFFILIATE.bookingLabel` to a tracking source name. |
+| Hotels.com / Expedia | Apply via the Expedia affiliate network (Impact / CJ) | Set `showHotelsDotCom` / `showExpedia` in `listing.html` and add your tracking link template. |
+| Airbnb | <https://www.airbnb.com/d/partner> (invite-based) | Set `showAirbnb` in `listing.html`. |
+
+All booking links carry `rel="sponsored"` so they are compliant with AdSense and
+FTC disclosure rules. The "we may earn a small commission" note is already shown
+next to the buttons.
 
 ## 8. Clone for a new niche (wild swimming, dog groomers, …)
 
