@@ -30,6 +30,9 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 - Every listing card has **Google Maps** and **Apple Maps** buttons (address-search links
   built from name + town + region) so visitors can find the spot and get directions in
   their preferred maps app — no per-listing GPS coordinates needed.
+- The search box accepts **postcodes** (full or partial, UK & Irish, e.g. `LA23`, `SW1`,
+  `BT7`, `D13`) and shows the dog-friendly spots in that area using a built-in
+  postcode-area → region map.
 - There's a **Toilets** filter (curated starter list) plus a **"Toilets near me"** button
   in the header that returns live public-toilet results for the visitor's location via
   Google/Apple Maps.

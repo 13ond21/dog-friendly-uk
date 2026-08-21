@@ -241,7 +241,9 @@
       <p>Find <strong>dog-friendly pubs</strong>, <strong>dog-friendly beaches</strong>,
          <strong>walking trails</strong> and <strong>off-lead dog parks</strong> across the
          UK and Ireland. Every place is picked for a warm welcome to well-behaved dogs —
-         filter by region, category or keyword, then check the details before you go.</p>
+         filter by region, category or keyword, then check the details before you go.
+         Try a <strong>postcode</strong> (e.g. <code>LA23</code> or <code>BT7</code>) to
+         see the dog-friendly spots in that area.</p>
       <div class="region-chips" id="region-chips" aria-label="Browse by region"></div>
       <p class="loo-cta">🫖 Need the loo while you're out?
         <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=public%20toilets%20near%20me" target="_blank" rel="noopener noreferrer">Google Maps</a>
@@ -255,7 +257,7 @@
     <div class="wrap">
       <div class="search">
         <label class="sr-only" for="search">Search listings</label>
-        <input type="search" id="search" placeholder="Search by name, town or keyword…" autocomplete="off">
+        <input type="search" id="search" placeholder="Search by name, town or postcode (e.g. LA23)…" autocomplete="off">
       </div>
       <div class="cat-btns" role="group" aria-label="Filter by category">
         <button type="button" class="cat-btn" data-category="all" aria-pressed="true">All</button>
@@ -384,15 +386,88 @@
     }
 
     /* ---------------- filtering ---------------- */
+    /* UK/Ireland postcode area -> regions. Lets the search box accept a postcode
+       (full or partial) and show listings in that area. */
+    const POSTCODE_AREAS = {
+      "SW": ["London"], "SE": ["London"], "W": ["London"], "WC": ["London"],
+      "EC": ["London"], "E": ["London"], "N": ["London"], "NW": ["London"],
+      "HA": ["London"], "UB": ["London"], "TW": ["London", "Surrey"],
+      "SM": ["London", "Surrey"], "CR": ["London", "Surrey"], "BR": ["London", "Kent"],
+      "DA": ["Kent", "London"], "EN": ["London", "Hertfordshire"],
+      "IG": ["London", "Essex"], "RM": ["London", "Essex"],
+      "TR": ["Cornwall"], "PL": ["Cornwall", "Devon"], "EX": ["Devon"], "TQ": ["Devon"],
+      "TA": ["Somerset"], "BS": ["Bristol", "Somerset", "Gloucestershire"], "BA": ["Somerset"],
+      "DT": ["Dorset"], "BH": ["Dorset", "Hampshire"], "SO": ["Hampshire"],
+      "PO": ["Hampshire", "West Sussex"], "BN": ["East Sussex", "West Sussex"],
+      "RH": ["Surrey", "West Sussex", "East Sussex"], "KT": ["Surrey", "London"],
+      "GU": ["Surrey", "Hampshire"], "RG": ["Berkshire"], "SL": ["Berkshire", "Buckinghamshire"],
+      "OX": ["Oxfordshire"], "HP": ["Buckinghamshire", "Hertfordshire"],
+      "MK": ["Buckinghamshire"], "LU": ["Bedfordshire"], "AL": ["Hertfordshire"],
+      "SG": ["Hertfordshire"], "WD": ["Hertfordshire"], "CM": ["Essex"],
+      "SS": ["Essex"], "CO": ["Essex", "Suffolk"], "IP": ["Suffolk", "Norfolk"],
+      "NR": ["Norfolk"], "PE": ["Cambridgeshire", "Norfolk", "Lincolnshire"],
+      "CB": ["Cambridgeshire"], "NN": ["Northamptonshire"], "LE": ["Leicestershire"],
+      "CV": ["Warwickshire"], "B": ["West Midlands"], "WS": ["Staffordshire"],
+      "WV": ["West Midlands"], "DY": ["West Midlands", "Worcestershire"],
+      "ST": ["Staffordshire"], "TF": ["Shropshire"], "SY": ["Shropshire", "Powys"],
+      "HR": ["Herefordshire"], "WR": ["Worcestershire"], "GL": ["Gloucestershire"],
+      "SN": ["Wiltshire"], "SP": ["Wiltshire", "Hampshire"], "CW": ["Cheshire"],
+      "WA": ["Cheshire", "Merseyside"], "L": ["Merseyside"], "M": ["Greater Manchester"],
+      "OL": ["Greater Manchester"], "BL": ["Greater Manchester"],
+      "SK": ["Greater Manchester", "Cheshire", "Derbyshire"], "PR": ["Lancashire"],
+      "BB": ["Lancashire"], "FY": ["Lancashire"], "LA": ["Cumbria", "Lancashire"],
+      "CA": ["Cumbria"], "NE": ["Northumberland", "Tyne and Wear", "Durham"],
+      "SR": ["Tyne and Wear"], "DH": ["Durham"], "TS": ["North Yorkshire", "Durham"],
+      "DL": ["North Yorkshire", "Durham"], "HG": ["North Yorkshire"],
+      "YO": ["North Yorkshire", "East Yorkshire"], "HU": ["East Yorkshire"],
+      "DN": ["South Yorkshire", "Lincolnshire"], "LN": ["Lincolnshire"],
+      "NG": ["Nottinghamshire"], "DE": ["Derbyshire"], "S": ["South Yorkshire"],
+      "LS": ["West Yorkshire"], "BD": ["West Yorkshire"], "HD": ["West Yorkshire"],
+      "HX": ["West Yorkshire"], "WF": ["West Yorkshire"],
+      "CF": ["Glamorgan"], "SA": ["Swansea", "Pembrokeshire", "Carmarthenshire", "Ceredigion"],
+      "LL": ["Gwynedd", "Conwy", "Anglesey", "Denbighshire"], "CH": ["Cheshire"],
+      "LD": ["Powys"], "NP": ["Monmouthshire", "Powys"],
+      "EH": ["Lothian"], "TD": ["Borders", "Lothian"], "DG": ["Dumfries & Galloway"],
+      "KA": ["Ayrshire"], "ML": ["North Lanarkshire", "South Lanarkshire"],
+      "G": ["Glasgow"], "PA": ["Argyll", "Renfrewshire", "Perthshire"],
+      "FK": ["Stirling", "Falkirk"], "KY": ["Fife"], "DD": ["Angus"],
+      "AB": ["Aberdeenshire"], "IV": ["Highland"], "KW": ["Caithness", "Sutherland", "Highland"],
+      "PH": ["Perthshire", "Highland"], "HS": ["Western Isles"],
+      "BT": ["Antrim", "Down", "Armagh", "Tyrone", "Fermanagh", "Derry"],
+      "D": ["Dublin"], "A": ["Wicklow", "Dublin", "Louth", "Meath"],
+      "V": ["Kerry", "Clare", "Tipperary"], "P": ["Cork"], "X": ["Waterford"],
+      "Y": ["Wexford"], "R": ["Kilkenny", "Laois"], "N": ["Westmeath", "Offaly"],
+      "C": ["Meath"], "H": ["Cavan", "Monaghan"], "E": ["Tipperary"],
+      "F": ["Mayo", "Donegal"], "K": ["Kildare"], "W": ["Kildare", "Wicklow"]
+    };
+
+    /* Returns { regions, outward } if the query looks like a postcode, else null. */
+    function postcodeAreasFor(query) {
+      const norm = String(query).replace(/\s+/g, "").toUpperCase();
+      const m = norm.match(/^([A-Z]{1,2})(\d)/);
+      if (!m) return null;
+      const regions = POSTCODE_AREAS[m[1]];
+      if (!regions || regions.length === 0) return null;
+      return { regions, outward: norm };
+    }
+
     function getFiltered() {
       const q = state.query.trim().toLowerCase();
+      const pc = postcodeAreasFor(q);
       return state.all.filter((item) => {
         if (state.category !== "all" && item.category !== state.category) return false;
         if (state.region !== "all" && item.region !== state.region) return false;
         if (q) {
-          const haystack = [item.name, item.town, item.region, item.postcode, item.description]
-            .join(" ").toLowerCase();
-          if (!haystack.includes(q)) return false;
+          if (pc) {
+            const inRegion = pc.regions.includes(item.region);
+            const postcodeMatch = item.postcode &&
+              item.postcode.toUpperCase().replace(/\s+/g, "").startsWith(pc.outward);
+            if (!inRegion && !postcodeMatch) return false;
+          } else {
+            const haystack = [item.name, item.town, item.region, item.postcode, item.description]
+              .join(" ").toLowerCase();
+            if (!haystack.includes(q)) return false;
+          }
         }
         return true;
       });
