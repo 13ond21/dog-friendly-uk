@@ -371,7 +371,7 @@
 
     const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets" };
 
-    const state = { all: [], category: "all", region: "all", query: "", sort: "recommended" };
+    const state = { all: [], category: "all", region: "all", query: "", sort: "recommended", userLoc: null };
 
     const els = {
       search: document.getElementById("search"),
@@ -467,6 +467,34 @@
       return { regions, outward: norm };
     }
 
+    function haversineKm(lat1, lng1, lat2, lng2) {
+      const R = 6371;
+      const toRad = (d) => (d * Math.PI) / 180;
+      const dLat = toRad(lat2 - lat1);
+      const dLng = toRad(lng2 - lng1);
+      const a = Math.sin(dLat / 2) ** 2 +
+        Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng / 2) ** 2;
+      return 2 * R * Math.asin(Math.sqrt(a));
+    }
+
+    /* Geocode the typed postcode (client-side via postcodes.io, no key needed) so
+       "Closest to postcode" can sort by real distance. */
+    async function resolveUserLocation(query) {
+      const pc = postcodeAreasFor(query);
+      if (!pc) { state.userLoc = null; return; }
+      try {
+        const res = await fetch("https://api.postcodes.io/postcodes/" + encodeURIComponent(String(query).trim().toUpperCase()));
+        if (!res.ok) { state.userLoc = null; return; }
+        const json = await res.json();
+        state.userLoc = json.result && json.result.latitude != null
+          ? { lat: json.result.latitude, lng: json.result.longitude }
+          : null;
+      } catch (err) {
+        state.userLoc = null;
+      }
+      render();
+    }
+
     function sortList(list) {
       const s = state.sort;
       if (s === "name") return [...list].sort((a, b) => a.name.localeCompare(b.name));
@@ -475,6 +503,15 @@
           (b.popularity || 3) - (a.popularity || 3) || a.name.localeCompare(b.name));
       }
       if (s === "closest") {
+        if (state.userLoc) {
+          return [...list].sort((a, b) => {
+            const da = (a.latitude != null && a.longitude != null)
+              ? haversineKm(state.userLoc.lat, state.userLoc.lng, a.latitude, a.longitude) : Infinity;
+            const db = (b.latitude != null && b.longitude != null)
+              ? haversineKm(state.userLoc.lat, state.userLoc.lng, b.latitude, b.longitude) : Infinity;
+            return da - db || a.name.localeCompare(b.name);
+          });
+        }
         const pc = postcodeAreasFor(state.query);
         if (!pc) return list; // no postcode to be closest to
         return [...list].sort((a, b) => {
@@ -490,7 +527,12 @@
 
     function getFiltered() {
       const q = state.query.trim().toLowerCase();
-      const pc = postcodeAreasFor(q);
+      const pcq = postcodeAreasFor(q);
+      // When sorting by "closest", the postcode is the distance origin, not a filter —
+      // so we show everything ranked by distance from it.
+      const distanceMode = state.sort === "closest" && !!pcq;
+      const pc = distanceMode ? null : pcq;
+
       const list = state.all.filter((item) => {
         if (state.category !== "all" && item.category !== state.category) return false;
         if (state.region !== "all" && item.region !== state.region) return false;
@@ -500,7 +542,7 @@
             const postcodeMatch = item.postcode &&
               item.postcode.toUpperCase().replace(/\s+/g, "").startsWith(pc.outward);
             if (!inRegion && !postcodeMatch) return false;
-          } else {
+          } else if (!distanceMode) {
             const haystack = [item.name, item.town, item.region, item.postcode, item.description]
               .join(" ").toLowerCase();
             if (!haystack.includes(q)) return false;
@@ -516,11 +558,20 @@
       return [item.name, item.town, item.region].filter(Boolean).join(", ");
     }
 
+    /* Use exact coordinates for the map buttons when we have them (a precise pin),
+       otherwise fall back to an address search. */
+    function placeQuery(item) {
+      if (item.latitude != null && item.longitude != null) {
+        return item.latitude + "," + item.longitude;
+      }
+      return mapsQuery(item);
+    }
+
     function cardHTML(item) {
       const badge = `<span class="badge ${esc(item.category)}">${esc(CATEGORY_LABELS[item.category] || item.category)}</span>`;
       const featured = item.is_featured ? `<span class="badge featured">Featured</span>` : "";
       const location = [item.town, item.region, item.postcode].filter(Boolean).join(" · ");
-      const q = encodeURIComponent(mapsQuery(item));
+      const q = encodeURIComponent(placeQuery(item));
       const nearestLoos = encodeURIComponent("public toilets near " + mapsQuery(item));
       const website = item.website
         ? `<a class="btn btn-primary" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
@@ -631,9 +682,17 @@
 
     /* ---------------- events ---------------- */
     function bindEvents() {
-      els.search.addEventListener("input", (e) => { state.query = e.target.value; render(); });
+      els.search.addEventListener("input", (e) => {
+        state.query = e.target.value;
+        if (state.sort === "closest") resolveUserLocation(state.query);
+        render();
+      });
       els.region.addEventListener("change", (e) => { state.region = e.target.value; syncChipsFromDropdown(); render(); });
-      els.sort.addEventListener("change", (e) => { state.sort = e.target.value; render(); });
+      els.sort.addEventListener("change", (e) => {
+        state.sort = e.target.value;
+        if (state.sort === "closest") resolveUserLocation(state.query);
+        render();
+      });
       els.categoryButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
           els.categoryButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));

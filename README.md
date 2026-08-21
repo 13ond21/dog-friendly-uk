@@ -27,14 +27,15 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 - The page also emits **schema.org structured data** (JSON-LD `WebSite` + `ItemList`) so
   search engines understand the listings, plus region quick-link chips for better crawling
   and navigation.
-- Every listing card has **Google Maps** and **Apple Maps** buttons (address-search links
-  built from name + town + region) so visitors can find the spot and get directions in
-  their preferred maps app — no per-listing GPS coordinates needed.
+- Every listing card has **Google Maps** and **Apple Maps** buttons — they now drop an
+  **exact pin** using each listing's GPS coordinates (all 1,766 places are geocoded), and
+  fall back to an address search if coordinates are ever missing.
 - The search box accepts **postcodes** (full or partial, UK & Irish, e.g. `LA23`, `SW1`,
   `BT7`, `D13`) and shows the dog-friendly spots in that area using a built-in
   postcode-area → region map.
 - Listings can be **sorted**: Recommended (featured first), **Most popular** (editorial
-  popularity score), Name (A–Z), or **Closest to postcode** (area matched to your postcode).
+  popularity score), Name (A–Z), or **Closest to postcode** — which geocodes the postcode
+  and ranks every listing by **real distance** using the stored GPS coordinates.
 - Cards show **opening hours** where known (outdoor spaces are "open all year, dawn to
   dusk"), a **website** button, and — for toilet listings — **♿ accessible** and
   **🍼 baby change** flags where confirmed. A `phone` column is ready in the schema but
@@ -95,7 +96,7 @@ select policyname, cmd from pg_policies where tablename = 'listings';
 2. Click **Import data from CSV** (the button near the top right).
 3. Upload `dog-friendly-uk-listings.csv`.
 4. Confirm the columns map by header name (`directory_slug`, `name`, `category`, …).
-5. Click **Import**. You should now see **1,766 rows** (14 columns).
+5. Click **Import**. You should now see **1,766 rows** (16 columns).
 
 The `id` and `created_at` columns are filled automatically; `is_featured` is `false`
 for every row (flip it to `true` later when you sell featured listings).

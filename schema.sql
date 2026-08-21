@@ -20,6 +20,8 @@ create table if not exists public.listings (
   popularity     integer   not null default 3,      -- editorial 1-5 for "Most popular" sorting
   wheelchair_accessible boolean,                    -- toilets: where confirmed
   baby_change    boolean,                           -- toilets: where confirmed
+  latitude       double precision,                  -- approx. coords from public geocoding (area level)
+  longitude      double precision,
   created_at     timestamptz not null default now()
 );
 
@@ -36,6 +38,8 @@ alter table public.listings add column if not exists phone text;
 alter table public.listings add column if not exists popularity integer not null default 3;
 alter table public.listings add column if not exists wheelchair_accessible boolean;
 alter table public.listings add column if not exists baby_change boolean;
+alter table public.listings add column if not exists latitude double precision;
+alter table public.listings add column if not exists longitude double precision;
 
 -- 2) Indexes for fast filtering -----------------------------------------------
 create index if not exists listings_directory_slug_idx on public.listings (directory_slug);
