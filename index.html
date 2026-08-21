@@ -188,6 +188,15 @@
       padding: 12px 16px; margin: 8px 0;
     }
     .faq summary { font-weight: 600; cursor: pointer; }
+    .browse { margin: 30px 0 10px; }
+    .browse h2 { font-size: 1.25rem; }
+    .browse-intro { color: var(--muted); margin: 0 0 12px; }
+    .browse-links { display: flex; flex-wrap: wrap; gap: 8px; }
+    .browse-link {
+      background: #fff; border: 1px solid var(--border); border-radius: 999px;
+      padding: 7px 14px; font-size: .85rem; color: var(--green); text-decoration: none;
+    }
+    .browse-link:hover { border-color: var(--green); }
     .facilities { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 2px; }
     .facility {
       font-size: .75rem; font-weight: 600; padding: 3px 8px;
@@ -345,6 +354,40 @@
     ====================================== -->
     <div class="ad-slot" id="ad-slot-bottom" aria-hidden="true">Advertisement</div>
   </main>
+
+  <section class="browse wrap">
+    <h2>Browse by category &amp; region</h2>
+    <p class="browse-intro">Popular dog-friendly searches across the UK &amp; Ireland:</p>
+    <div class="browse-links">
+    <a class="browse-link" href="?category=pub&amp;region=Cornwall">Dog-friendly pubs in Cornwall</a>
+    <a class="browse-link" href="?category=pub&amp;region=Devon">Dog-friendly pubs in Devon</a>
+    <a class="browse-link" href="?category=pub&amp;region=Cumbria">Dog-friendly pubs in Cumbria</a>
+    <a class="browse-link" href="?category=pub&amp;region=Derbyshire">Dog-friendly pubs in Derbyshire</a>
+    <a class="browse-link" href="?category=pub&amp;region=North%20Yorkshire">Dog-friendly pubs in North Yorkshire</a>
+    <a class="browse-link" href="?category=pub&amp;region=Lothian">Dog-friendly pubs in Lothian</a>
+    <a class="browse-link" href="?category=beach&amp;region=Cornwall">Dog-friendly beaches in Cornwall</a>
+    <a class="browse-link" href="?category=beach&amp;region=Cork">Dog-friendly beaches in Cork</a>
+    <a class="browse-link" href="?category=beach&amp;region=Pembrokeshire">Dog-friendly beaches in Pembrokeshire</a>
+    <a class="browse-link" href="?category=beach&amp;region=Donegal">Dog-friendly beaches in Donegal</a>
+    <a class="browse-link" href="?category=beach&amp;region=Dorset">Dog-friendly beaches in Dorset</a>
+    <a class="browse-link" href="?category=beach&amp;region=Devon">Dog-friendly beaches in Devon</a>
+    <a class="browse-link" href="?category=trail&amp;region=Cumbria">Dog-friendly trails in Cumbria</a>
+    <a class="browse-link" href="?category=trail&amp;region=North%20Yorkshire">Dog-friendly trails in North Yorkshire</a>
+    <a class="browse-link" href="?category=trail&amp;region=Highland">Dog-friendly trails in Highland</a>
+    <a class="browse-link" href="?category=trail&amp;region=Derbyshire">Dog-friendly trails in Derbyshire</a>
+    <a class="browse-link" href="?category=trail&amp;region=Devon">Dog-friendly trails in Devon</a>
+    <a class="browse-link" href="?category=trail&amp;region=Gwynedd">Dog-friendly trails in Gwynedd</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=London">Dog-friendly dog parks in London</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=Surrey">Dog-friendly dog parks in Surrey</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=Glasgow">Dog-friendly dog parks in Glasgow</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=Hampshire">Dog-friendly dog parks in Hampshire</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=Essex">Dog-friendly dog parks in Essex</a>
+    <a class="browse-link" href="?category=dog_park&amp;region=Kent">Dog-friendly dog parks in Kent</a>
+    <a class="browse-link" href="?category=toilet&amp;region=Cornwall">Dog-friendly toilets in Cornwall</a>
+    <a class="browse-link" href="?category=toilet&amp;region=London">Dog-friendly toilets in London</a>
+    <a class="browse-link" href="?category=toilet&amp;region=Devon">Dog-friendly toilets in Devon</a>
+    </div>
+  </section>
 
   <section class="faq wrap">
     <h2>Dog-friendly days out in the UK &amp; Ireland — quick answers</h2>
@@ -672,6 +715,37 @@
       els.region.innerHTML = `<option value="all">All regions</option>` + options.join("");
     }
 
+    /* ---------------- deep links (shareable filter URLs) ---------------- */
+    function setCategoryUI() {
+      els.categoryButtons.forEach((b) => {
+        b.setAttribute("aria-pressed", String(b.dataset.category === state.category));
+      });
+    }
+
+    function updateURL() {
+      try {
+        const params = new URLSearchParams();
+        if (state.category !== "all") params.set("category", state.category);
+        if (state.region !== "all") params.set("region", state.region);
+        if (state.sort !== "recommended") params.set("sort", state.sort);
+        history.replaceState(null, "", params.toString() ? "?" + params.toString() : location.pathname);
+      } catch (e) { /* file:// or browser without history API */ }
+    }
+
+    function applyURLFilters() {
+      const params = new URLSearchParams(location.search);
+      const cat = params.get("category");
+      const reg = params.get("region");
+      const srt = params.get("sort");
+      if (cat && CATEGORY_LABELS[cat]) state.category = cat;
+      if (reg && state.all.some((i) => i.region === reg)) state.region = reg;
+      if (srt && ["recommended", "popular", "name", "closest"].includes(srt)) state.sort = srt;
+      setCategoryUI();
+      els.region.value = state.region;
+      els.sort.value = state.sort;
+      syncChipsFromDropdown();
+    }
+
     /* ---------------- region chips (quick links) ---------------- */
     function syncChipsFromDropdown() {
       els.chips.querySelectorAll("[data-region]").forEach((c) => {
@@ -684,6 +758,7 @@
       els.region.value = region;
       syncChipsFromDropdown();
       render();
+      updateURL();
     }
 
     function populateRegionChips() {
@@ -740,17 +815,24 @@
         if (state.sort === "closest") resolveUserLocation(state.query);
         render();
       });
-      els.region.addEventListener("change", (e) => { state.region = e.target.value; syncChipsFromDropdown(); render(); });
+      els.region.addEventListener("change", (e) => {
+        state.region = e.target.value;
+        syncChipsFromDropdown();
+        render();
+        updateURL();
+      });
       els.sort.addEventListener("change", (e) => {
         state.sort = e.target.value;
         if (state.sort === "closest") resolveUserLocation(state.query);
         render();
+        updateURL();
       });
       els.categoryButtons.forEach((btn) => {
         btn.addEventListener("click", () => {
-          els.categoryButtons.forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
           state.category = btn.dataset.category;
+          setCategoryUI();
           render();
+          updateURL();
         });
       });
     }
@@ -778,6 +860,7 @@
         populateRegions();
         populateRegionChips();
         bindEvents();
+        applyURLFilters();
         render();
         injectListingsJSONLD();
       } catch (err) {

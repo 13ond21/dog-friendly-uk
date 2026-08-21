@@ -35,6 +35,9 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 - The search box accepts **postcodes** (full or partial, UK & Irish, e.g. `LA23`, `SW1`,
   `BT7`, `D13`) and shows the dog-friendly spots in that area using a built-in
   postcode-area → region map.
+- A **"Browse by category & region"** section links to pre-filtered views
+  (e.g. "Dog-friendly beaches in Cornwall"), and every filter state is a **shareable
+  URL** (`?category=beach&region=Cornwall`).
 - Listings can be **sorted**: Recommended (featured first), **Most popular** (editorial
   popularity score), Name (A–Z), or **Closest to postcode** — which geocodes the postcode
   and ranks every listing by **real distance** using the stored GPS coordinates.
