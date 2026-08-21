@@ -218,6 +218,7 @@
     .badge.toilet { background: #0f766e; }
     .badge.accommodation { background: #4338ca; }
     .badge.restaurant { background: #c2410c; }
+    .badge.campsite { background: #0e7490; }
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
@@ -358,6 +359,7 @@
         <button type="button" class="cat-btn" data-category="toilet" aria-pressed="false">Toilets</button>
         <button type="button" class="cat-btn" data-category="accommodation" aria-pressed="false">Accommodation</button>
         <button type="button" class="cat-btn" data-category="restaurant" aria-pressed="false">Restaurants &amp; Cafés</button>
+        <button type="button" class="cat-btn" data-category="campsite" aria-pressed="false">Campsites</button>
       </div>
       <div>
         <label class="sr-only" for="region">Filter by region</label>
@@ -468,6 +470,9 @@
     <a class="browse-link" href="?category=restaurant&amp;region=Cheshire">Dog-friendly restaurants &amp; cafés in Cheshire</a>
     <a class="browse-link" href="?category=restaurant&amp;region=Lancashire">Dog-friendly restaurants &amp; cafés in Lancashire</a>
     <a class="browse-link" href="?category=restaurant&amp;region=Oxfordshire">Dog-friendly restaurants &amp; cafés in Oxfordshire</a>
+    <a class="browse-link" href="?category=campsite&amp;region=Devon">Dog-friendly campsites in Devon</a>
+    <a class="browse-link" href="?category=campsite&amp;region=Cornwall">Dog-friendly campsites in Cornwall</a>
+    <a class="browse-link" href="?category=campsite&amp;region=Cumbria">Dog-friendly campsites in Cumbria</a>
 </div>
   </section>
 
@@ -549,8 +554,8 @@
     const AFFILIATE_BOOKING_AID = "";            // e.g. "1234567"
     const AFFILIATE_BOOKING_LABEL = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café", campsite: "Campsite" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️", campsite: "⛺" };
 
     const state = { all: [], category: "all", region: "all", query: "", sort: "recommended", userLoc: null };
 
@@ -754,6 +759,13 @@
 
     /* Use exact coordinates for the map buttons when we have them (a precise pin),
        otherwise fall back to an address search. */
+    /* Pitchup search URL for a campsite — the primary booking button on
+       campsite cards. Pitchup lists most UK campsites and holiday parks. */
+    function pitchupUrl(item) {
+      const q = encodeURIComponent([item.name, item.town, item.region].filter(Boolean).join(" "));
+      return "https://www.pitchup.com/campsites/search/?location=" + q;
+    }
+
     function placeQuery(item) {
       if (item.latitude != null && item.longitude != null) {
         return item.latitude + "," + item.longitude;
@@ -779,11 +791,14 @@
       const q = encodeURIComponent(placeQuery(item));
       const nearestLoos = encodeURIComponent("public toilets near " + mapsQuery(item));
       const isStay = item.category === "accommodation";
+      const isPitch = item.category === "campsite";
       const booking = isStay
         ? `<a class="btn btn-primary" href="${esc(bookingUrl(item))}" target="_blank" rel="sponsored noopener noreferrer" title="Search rates on Booking.com">🛏️ Book on Booking.com</a>`
-        : "";
+        : (isPitch
+          ? `<a class="btn btn-primary" href="${esc(pitchupUrl(item))}" target="_blank" rel="sponsored noopener noreferrer" title="Find this campsite on Pitchup">⛺ Book on Pitchup</a>`
+          : "");
       const website = item.website
-        ? `<a class="btn ${isStay ? "" : "btn-primary"}" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
+        ? `<a class="btn ${isStay || isPitch ? "" : "btn-primary"}" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>`
         : "";
       const maps = `
         <div class="actions">

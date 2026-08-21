@@ -67,6 +67,7 @@
     .badge.toilet { background: #0f766e; }
     .badge.accommodation { background: #4338ca; }
     .badge.restaurant { background: #c2410c; }
+    .badge.campsite { background: #0e7490; }
     .badge.featured { background: #141b16; }
     h2.title { margin: 0 0 4px; font-size: 1.7rem; line-height: 1.25; }
     .meta { color: var(--muted); font-size: .95rem; margin: 6px 0; }
@@ -179,9 +180,9 @@
       showGoogleHotels: true
     };
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café" };
-    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️" };
-    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets", accommodation: "accommodation", restaurant: "restaurant" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park", toilet: "Toilets", accommodation: "Accommodation", restaurant: "Restaurant & Café", campsite: "Campsite" };
+    const CATEGORY_ICONS = { pub: "🍺", beach: "🏖️", trail: "🥾", dog_park: "🌳", toilet: "🚽", accommodation: "🏨", restaurant: "🍽️", campsite: "⛺" };
+    const REGION_LABEL = { pub: "pub", beach: "beach", trail: "trail", dog_park: "dog park", toilet: "public toilets", accommodation: "accommodation", restaurant: "restaurant", campsite: "campsite" };
 
     function slugify(s) {
       return String(s).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
@@ -206,44 +207,59 @@
       return [item.name, item.town, item.region].filter(Boolean).join(", ");
     }
 
-    /* Booking links for a listing. Booking.com is always first and is
-       rendered as the primary button ("make the number 1"). */
+    /* Booking links for a listing. The primary ("#1") button differs by
+       category: Booking.com for hotels/accommodation, Pitchup for campsites. */
     function bookingLinks(item) {
       const q = encodeURIComponent(bookingQuery(item));
       const links = [];
-      links.push({
-        label: "Book on Booking.com ↗",
-        url: "https://www.booking.com/searchresults.html?ss=" + q +
-          (AFFILIATE.bookingAid
-            ? "&aid=" + encodeURIComponent(AFFILIATE.bookingAid) +
-              "&label=" + encodeURIComponent(AFFILIATE.bookingLabel)
-            : ""),
-        primary: true
-      });
-      if (AFFILIATE.showHotelsDotCom) {
-        links.push({ label: "Hotels.com", url: "https://www.hotels.com/search.do?destination=" + q });
-      }
-      if (AFFILIATE.showExpedia) {
-        links.push({ label: "Expedia", url: "https://www.expedia.co.uk/Hotel-Search?destination=" + q });
-      }
-      if (AFFILIATE.showAirbnb) {
-        const s = encodeURIComponent(bookingQuery(item).replace(/\s+/g, "-"));
-        links.push({ label: "Airbnb", url: "https://www.airbnb.co.uk/s/" + s + "/homes" });
-      }
-      if (AFFILIATE.showGoogleHotels) {
-        links.push({ label: "Google Hotels", url: "https://www.google.com/travel/hotels?q=" + q });
+      if (item.category === "campsite") {
+        links.push({
+          label: "Book on Pitchup ↗",
+          url: "https://www.pitchup.com/campsites/search/?location=" + q,
+          primary: true
+        });
+        if (AFFILIATE.showAirbnb) {
+          const s = encodeURIComponent(bookingQuery(item).replace(/\s+/g, "-"));
+          links.push({ label: "Airbnb", url: "https://www.airbnb.co.uk/s/" + s + "/homes" });
+        }
+        links.push({ label: "Google", url: "https://www.google.com/search?q=" + q + "%20campsite" });
+      } else {
+        links.push({
+          label: "Book on Booking.com ↗",
+          url: "https://www.booking.com/searchresults.html?ss=" + q +
+            (AFFILIATE.bookingAid
+              ? "&aid=" + encodeURIComponent(AFFILIATE.bookingAid) +
+                "&label=" + encodeURIComponent(AFFILIATE.bookingLabel)
+              : ""),
+          primary: true
+        });
+        if (AFFILIATE.showHotelsDotCom) {
+          links.push({ label: "Hotels.com", url: "https://www.hotels.com/search.do?destination=" + q });
+        }
+        if (AFFILIATE.showExpedia) {
+          links.push({ label: "Expedia", url: "https://www.expedia.co.uk/Hotel-Search?destination=" + q });
+        }
+        if (AFFILIATE.showAirbnb) {
+          const s = encodeURIComponent(bookingQuery(item).replace(/\s+/g, "-"));
+          links.push({ label: "Airbnb", url: "https://www.airbnb.co.uk/s/" + s + "/homes" });
+        }
+        if (AFFILIATE.showGoogleHotels) {
+          links.push({ label: "Google Hotels", url: "https://www.google.com/travel/hotels?q=" + q });
+        }
       }
       return links;
     }
 
     function bookBoxHTML(item) {
       const rel = "sponsored noopener noreferrer";
+      const isCampsite = item.category === "campsite";
+      const heading = isCampsite ? "⛺ Book this campsite" : "🛏️ Book this stay";
       const btns = bookingLinks(item).map((l) =>
         `<a class="book-btn${l.primary ? " primary" : ""}" href="${esc(l.url)}" target="_blank" rel="${rel}">${esc(l.label)}</a>`
       ).join("");
       return `
         <div class="book-box">
-          <div class="book-head"><strong>🛏️ Book this stay</strong><span>We may earn a small commission at no extra cost to you.</span></div>
+          <div class="book-head"><strong>${heading}</strong><span>We may earn a small commission at no extra cost to you.</span></div>
           <div class="book-grid">${btns}</div>
         </div>`;
     }
@@ -290,7 +306,7 @@
       const nearestLoos = encodeURIComponent("public toilets near " + mapsQuery(item));
       const website = item.website
         ? `<a class="btn ${item.category === "accommodation" ? "" : "btn-primary"}" href="${esc(item.website)}" target="_blank" rel="noopener noreferrer">Visit website ↗</a>` : "";
-      const bookBox = item.category === "accommodation" ? bookBoxHTML(item) : "";
+      const bookBox = (item.category === "accommodation" || item.category === "campsite") ? bookBoxHTML(item) : "";
       const report = `<p class="report-link">Spot something wrong or out of date? <a href="mailto:your@email.com?subject=${encodeURIComponent("Report a problem — " + item.name)}">Let us know</a>.</p>`;
 
       const specs = [];

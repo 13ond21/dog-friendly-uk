@@ -1,6 +1,6 @@
 # 🐾 Dog-Friendly Spots UK & Ireland
 
-A free directory of **dog-friendly pubs, beaches, walking trails, dog parks, restaurants &amp; cafés and places to stay** across
+A free directory of **dog-friendly pubs, beaches, walking trails, dog parks, restaurants &amp; cafés, campsites and places to stay** across
 the UK and Ireland — with county-by-county coverage of England, Scotland, Wales,
 Ireland and Northern Ireland (133 regions). A single static HTML page (no framework,
 no build step) backed by a Supabase database, designed to be cloned and re-skinned for
@@ -11,10 +11,10 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
 | File | Purpose |
 |---|---|
 | `index.html` | The directory home page: SEO meta, filters, listing cards, AdSense placeholders, footer |
-| `listing.html` | Per-listing detail pages (`listing.html?slug=…`) with their own title, meta and JSON-LD — so every one of the 2,193 places is individually indexable |
+| `listing.html` | Per-listing detail pages (`listing.html?slug=…`) with their own title, meta and JSON-LD — so every one of the 2,223 places is individually indexable |
 | `schema.sql` | Supabase table + indexes + Row Level Security — paste into the SQL editor |
-| `dog-friendly-uk-listings.csv` | 2,193 starter listings (133 regions — every UK &amp; Irish county covered), ready for Supabase's CSV import |
-| `sitemap.xml` | 2,194 URLs (homepage + every listing) — submit to Google Search Console |
+| `dog-friendly-uk-listings.csv` | 2,223 starter listings (133 regions — every UK &amp; Irish county covered), ready for Supabase's CSV import |
+| `sitemap.xml` | 2,224 URLs (homepage + every listing) — submit to Google Search Console |
 | `robots.txt` / `og-image.png` | Crawling rules + social share image (1200×630) |
 | `favicon.svg` | Paw-print favicon |
 | `.gitignore` | Minimal ignore rules |
@@ -30,7 +30,7 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
   search engines understand the listings, plus region quick-link chips for better crawling
   and navigation.
 - Every listing card has **Google Maps** and **Apple Maps** buttons — they now drop an
-  **exact pin** using each listing's GPS coordinates (all 2,193 places are geocoded), and
+  **exact pin** using each listing's GPS coordinates (all 2,223 places are geocoded), and
   fall back to an address search if coordinates are ever missing.
 - The search box accepts **postcodes** (full or partial, UK & Irish, e.g. `LA23`, `SW1`,
   `BT7`, `D13`) and shows the dog-friendly spots in that area using a built-in
@@ -49,6 +49,10 @@ future niche directory sites (wild swimming, mobile dog groomers, etc.).
   is left blank rather than ship unverified numbers.
 - **Restaurants &amp; cafés** is a live category (chain venues with written dog policies,
   plus independent cafés verified through dog-friendly directories).
+- **Campsites** is a live category for campsites, caravan parks and glamping — verified
+  dog-friendly sites, each with a **Pitchup** booking button. The **Accommodation**
+  category covers hotels, holiday parks and dog-friendly self-catering cottages (the
+  Airbnb-style options), with **Booking.com / Hotels.com / Airbnb** buttons.
 - There's a **Toilets** filter (curated starter list) plus a **"Toilets near me"** button
   in the header that returns live public-toilet results for the visitor's location via
   Google/Apple Maps.
@@ -223,7 +227,7 @@ copy, and the seed data.
 
 - [x] Paste real Supabase keys into `index.html`
 - [ ] Run `schema.sql` in the Supabase SQL Editor (creates the `listings` table + RLS)
-- [ ] Import `dog-friendly-uk-listings.csv` via Table Editor (2,193 rows) after running the updated `schema.sql` (adds the `restaurant` category + `seasonal_rules` column)
+- [ ] Import `dog-friendly-uk-listings.csv` via Table Editor (2,223 rows) after running the updated `schema.sql` (adds the `restaurant` + `campsite` categories and the `seasonal_rules` column)
 - [ ] Verify a handful of listings (pub dog policies and beach dog bans change)
 - [x] Replace `YOUR-USERNAME` / `YOUR-REPO` in `index.html`, `robots.txt`, `sitemap.xml`
 - [ ] Replace `your@email.com` in the footer
