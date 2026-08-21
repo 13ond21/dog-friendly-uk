@@ -1049,3 +1049,300 @@ dog-friendly-uk,Ockham Common,dog_park,Surrey,Cobham,KT11 1NA,A wild common of h
 dog-friendly-uk,Esher Common,dog_park,Surrey,Esher,KT10 9HS,A large common with old heathland and open glades.,,false
 dog-friendly-uk,Painshill,dog_park,Surrey,Cobham,KT11 1JE,"A historic landscape garden with a lake, grotto and vineyard views.",,false
 dog-friendly-uk,Chobham Place Woods,dog_park,Surrey,Chobham,GU24 8AF,A quiet wood with bluebells and easy circular paths.,,false
+dog-friendly-uk,Kelvingrove Park,dog_park,Glasgow,Glasgow,G3 8QN,"A riverside park beside the museum, with lawns and the Kelvin walk.",,false
+dog-friendly-uk,Glasgow Green,dog_park,Glasgow,Glasgow,G40 1AT,"The city's oldest park, with the People's Palace and riverside paths.",,false
+dog-friendly-uk,Queen's Park (Glasgow),dog_park,Glasgow,Glasgow,G42 8QR,A Victorian park on a hill with views over the city and a boating lake.,,false
+dog-friendly-uk,Victoria Park (Glasgow),dog_park,Glasgow,Glasgow,G14 9NW,A park famous for the Fossil Grove of ancient tree stumps.,,false
+dog-friendly-uk,Bellahouston Park,dog_park,Glasgow,Glasgow,G52 1AQ,"A grand park with a war memorial, woodland and wide lawns.",,false
+dog-friendly-uk,Rouken Glen,dog_park,Glasgow,Glasgow,G46 7UG,"A park with gardens, a loch and a waterfall at the head of the glen.",,false
+dog-friendly-uk,Linn Park,dog_park,Glasgow,Glasgow,G44 3TG,A wooded park along the Cart Water with the ruined Croftfoot castle.,,false
+dog-friendly-uk,Alexandra Park (Glasgow),dog_park,Glasgow,Glasgow,G31 4PJ,A hilltop park with views over the East End and a fine viewpoint.,,false
+dog-friendly-uk,Tollcross Park,dog_park,Glasgow,Glasgow,G32 8UE,"A grand park with a fountain, greenhouses and a walled garden.",,false
+dog-friendly-uk,Springburn Park,dog_park,Glasgow,Glasgow,G21 1UX,A park with a hilltop viewpoint and a fine war memorial.,,false
+dog-friendly-uk,Dawsholm Park,dog_park,Glasgow,Glasgow,G20 9EB,"A riverside park of woodland and meadows, popular with dog walkers.",,false
+dog-friendly-uk,Cuningar Loop,dog_park,Glasgow,Glasgow,G40 3SP,A new riverside park on the Clyde with woodland and a bike skills area.,,false
+dog-friendly-uk,Clyde Walkway,trail,Glasgow,Glasgow,G1 1EQ,A riverside path through the city centre with fine bridges and views.,,false
+dog-friendly-uk,Hogganfield Loch,dog_park,Glasgow,Glasgow,G33 1NQ,"A loch with a circular path and a cafe, popular with families.",,false
+dog-friendly-uk,Possil Marsh,dog_park,Glasgow,Glasgow,G22 5AD,A quiet wetland reserve with hides and a surprising wildness.,,false
+dog-friendly-uk,Elder Park,dog_park,Glasgow,Glasgow,G51 3LY,A park by the river with a statue of the Victorian philanthropist.,,false
+dog-friendly-uk,Knightswood Park,dog_park,Glasgow,Glasgow,G13 3SU,A local park with woods and the Templar burn running through.,,false
+dog-friendly-uk,Ruchill Park,dog_park,Glasgow,Glasgow,G20 9BE,A hilltop park with fine views and a great playground.,,false
+dog-friendly-uk,Calderglen Country Park,dog_park,South Lanarkshire,East Kilbride,G74 3SG,"A country park of woods, rivers and gardens with a farm.",,false
+dog-friendly-uk,Chatelherault Country Park,dog_park,South Lanarkshire,Hamilton,ML3 7UE,A grand hunting lodge in parkland above the Avon gorge.,,false
+dog-friendly-uk,Inverleith Park,dog_park,Lothian,Edinburgh,EH4 5NZ,A big park beside the Botanic Gardens with views over the city.,,false
+dog-friendly-uk,Water of Leith (Dean Village),trail,Lothian,Edinburgh,EH4 3AY,A riverside walk through the old mill village and gorges.,,false
+dog-friendly-uk,Calton Hill,trail,Lothian,Edinburgh,EH7 5AA,A hill with monuments and the best view over the New Town.,,false
+dog-friendly-uk,Leith Links,dog_park,Lothian,Edinburgh,EH6 7EZ,"Historic golfing links beside the shore, with wide open lawns.",,false
+dog-friendly-uk,Figgate Park,dog_park,Lothian,Edinburgh,EH15 3HT,A friendly park with a pond and good paths near Portobello.,,false
+dog-friendly-uk,Roslin Glen,trail,Lothian,Roslin,EH25 9PX,A wooded gorge below Rosslyn Chapel with the river and an old mill.,,false
+dog-friendly-uk,Bonaly Reservoir,trail,Lothian,Edinburgh,EH13 0DX,"A quiet reservoir at the foot of the Pentlands, great for a circular walk.",,false
+dog-friendly-uk,Harlaw Reservoir,trail,Lothian,Edinburgh,EH26 8AP,An easy waterside walk with the Pentland hills rising around.,,false
+dog-friendly-uk,Glencorse Reservoir,trail,Lothian,Edinburgh,EH26 0PH,A beautiful reservoir with a fine hill loop and views.,,false
+dog-friendly-uk,Threipmuir Reservoir,trail,Lothian,Edinburgh,EH26 8LN,A wilder reservoir with moorland paths and plenty of space.,,false
+dog-friendly-uk,Hillend Country Park,dog_park,Lothian,Edinburgh,EH26 8YB,A hill park with the dry-ski centre and fine Pentland views.,,false
+dog-friendly-uk,Musselburgh Shore,trail,Lothian,Musselburgh,EH21 6PU,A long seaside path with the links and views over the Forth.,,false
+dog-friendly-uk,Seton Sands,beach,Lothian,Longniddry,EH32 0PG,A long sandy beach popular with families and dog walkers.,,false
+dog-friendly-uk,Longniddry Beach,beach,Lothian,Longniddry,EH32 0PU,"A quiet, grassy-backed beach with views across the Forth.",,false
+dog-friendly-uk,Tyninghame Beach,beach,Lothian,Dunbar,EH42 1XY,"A wild, dune-backed beach near the John Muir country.",,false
+dog-friendly-uk,Silverknowes Beach,beach,Lothian,Edinburgh,EH4 5LR,A shingle beach at the edge of the city with Forth views.,,false
+dog-friendly-uk,Cramond Island,trail,Lothian,Edinburgh,EH4 5NU,"A tidal island walk, check the causeway times before crossing.",,false
+dog-friendly-uk,Duddingston Loch,dog_park,Lothian,Edinburgh,EH15 3PY,A loch below Arthur's Seat with a nature reserve and easy paths.,,false
+dog-friendly-uk,Gosford Bay,beach,Lothian,Aberlady,EH32 0PZ,A sheltered bay with a sandy beach and the castle behind.,,false
+dog-friendly-uk,Dirleton Shore,trail,Lothian,Dirleton,EH39 5EF,A coastal walk near the famous castle and the yellowcraig dunes.,,false
+dog-friendly-uk,Tobermory Bay,trail,Mull,Tobermory,PA75 6NT,The colourful harbour town with a fine waterside walk.,,false
+dog-friendly-uk,Calgary Bay,beach,Mull,Dervaig,PA75 6QW,A perfect white-sand bay with art installations on the grass.,,false
+dog-friendly-uk,Fionnphort,trail,Mull,Fionnphort,PA66 6BL,The ferry village with views to Iona and the Treshnish Isles.,,false
+dog-friendly-uk,Ben More (Mull),trail,Mull,Dervaig,PA75 6QJ,"Mull's highest mountain, with a rough but rewarding climb.",,false
+dog-friendly-uk,Lochbuie,trail,Mull,Lochbuie,PA62 6AA,"A wild, remote lochside with a castle and a fine shore walk.",,false
+dog-friendly-uk,Salen Bay,beach,Mull,Salen,PA72 6JG,A sheltered sandy bay in the Sound of Mull.,,false
+dog-friendly-uk,Glen More (Mull),trail,Mull,Lochbuie,PA62 6AF,A glen of ancient woods and lochans in the heart of the island.,,false
+dog-friendly-uk,Carsaig Bay,beach,Mull,Carsaig,PA66 6BL,"A wild bay at the end of a rough track, with the Nun's Cave nearby.",,false
+dog-friendly-uk,Ulva Ferry Shore,trail,Mull,Ulva,PA73 6LX,A shore walk near the ferry to the island of Ulva.,,false
+dog-friendly-uk,St Columba's Bay,beach,Iona,Iona,PA76 6SJ,"The wild beach where St Columba first landed, with white sand.",,false
+dog-friendly-uk,Iona North Beaches,beach,Iona,Iona,PA76 6SP,A string of turquoise bays along the west side of Iona.,,false
+dog-friendly-uk,Machir Bay,beach,Islay,Kilchoman,PA49 7UT,A huge Atlantic beach with the Kildalton cross nearby.,,false
+dog-friendly-uk,Saligo Bay,beach,Islay,Kilchoman,PA49 7UZ,"A wild, dramatic beach with the sea surging over rocks.",,false
+dog-friendly-uk,Laggan Bay,beach,Islay,Bowmore,PA43 7JJ,"A long, flat stretch of sand, great for a bracing walk.",,false
+dog-friendly-uk,Bowmore Shore,trail,Islay,Bowmore,PA43 7JP,A harbour-side walk with views over Loch Indaal.,,false
+dog-friendly-uk,Bunnahabhain Shore,trail,Islay,Bunnahabhain,PA46 7RP,A remote shore path past the famous distillery.,,false
+dog-friendly-uk,Corran Sands,beach,Jura,Jura,PA60 7XR,A fine beach at the foot of the Paps of Jura.,,false
+dog-friendly-uk,Craighouse Shore,trail,Jura,Craighouse,PA60 7XF,The island's main village with a lovely bay-side walk.,,false
+dog-friendly-uk,Three Arch Bridge,trail,Jura,Jura,PA60 7XT,A walk to the curious three-arched bridge near the road's end.,,false
+dog-friendly-uk,Lussa Bay,beach,Jura,Jura,PA60 7XS,"A quiet, sheltered bay on Jura's east coast.",,false
+dog-friendly-uk,Stac Pollaidh,trail,Sutherland,Lochinver,IV27 4LX,A fantastic quartzite peak with a summit ridge and huge views.,,false
+dog-friendly-uk,Suliven,trail,Sutherland,Lochinver,IV27 4LE,The distinctive camel-backed mountain of Assynt.,,false
+dog-friendly-uk,Canisp,trail,Sutherland,Lochinver,IV27 4LX,A quieter Assynt peak with panoramic moorland views.,,false
+dog-friendly-uk,Sango Bay,beach,Sutherland,Durness,IV27 4PZ,A wild beach below the village with turquoise water.,,false
+dog-friendly-uk,Smoo Cave,trail,Sutherland,Durness,IV27 4QA,A huge sea cave entered from a cliff-top walk.,,false
+dog-friendly-uk,Balnakeil Bay,beach,Sutherland,Durness,IV27 4PT,"A vast, beautiful beach with the ruined chapel behind.",,false
+dog-friendly-uk,Coldbackie Beach,beach,Sutherland,Tongue,IV27 4XN,A crescent of white sand in a sheltered bay near Tongue.,,false
+dog-friendly-uk,Farr Beach,beach,Sutherland,Bettyhill,KW14 7SS,"A long, wild beach below the cliffs near Bettyhill.",,false
+dog-friendly-uk,Dunnet Bay,beach,Caithness,Dunnet,KW14 8XD,"One of Scotland's finest beaches, a huge arc of golden sand.",,false
+dog-friendly-uk,Duncansby Stacks,trail,Caithness,John o' Groats,KW1 4YS,Sea stacks and seabird cliffs at the very north-east tip.,,false
+dog-friendly-uk,John o' Groats,trail,Caithness,John o' Groats,KW1 4YR,"The famous end of the road, with fine coastal views.",,false
+dog-friendly-uk,Whaligoe Steps,trail,Caithness,Ulster,KW1 4XE,A dramatic stairway of 365 steps down the cliff to an old harbour.,,false
+dog-friendly-uk,Thurso Shore,trail,Caithness,Thurso,KW14 7HR,A coastal path with the ruined castle and a long beach.,,false
+dog-friendly-uk,Sandside Bay,beach,Caithness,Reay,KW14 7RQ,"A wild, quiet beach in the far north-west corner.",,false
+dog-friendly-uk,Melvich Beach,beach,Sutherland,Melvich,KW14 7YJ,A great sandy beach at the mouth of the Halladale river.,,false
+dog-friendly-uk,Kylesku,trail,Sutherland,Kylesku,IV27 4HW,"A lochside walk below the great bridge, with boat trips.",,false
+dog-friendly-uk,Loch Eriboll,trail,Sutherland,Durness,IV27 4SS,A wild sea loch with a shore path and big skies.,,false
+dog-friendly-uk,Scourie Shore,trail,Sutherland,Scourie,IV27 4SX,A shore walk with views over the summer-isle bays.,,false
+dog-friendly-uk,Inchnadamph,trail,Sutherland,Inchnadamph,IV27 4HL,A limestone landscape of caves and the bone caves trail.,,false
+dog-friendly-uk,Ness Islands,dog_park,Highland,Inverness,IV2 4AE,Lovely islands in the River Ness linked by footbridges and trees.,,false
+dog-friendly-uk,Culloden Woods,dog_park,Highland,Inverness,IV2 5QB,Woodland trails near the famous battlefield.,,false
+dog-friendly-uk,Reelig Glen,trail,Highland,Inverness,IV4 7NX,A beautiful gorge of Douglas firs and mossy paths.,,false
+dog-friendly-uk,Craig Phadrig,trail,Highland,Inverness,IV3 8RD,A vitrified hillfort with views over Inverness and the firth.,,false
+dog-friendly-uk,Whiteness Woods,dog_park,Highland,Inverness,IV2 4LQ,A community woodland with easy paths above the river.,,false
+dog-friendly-uk,Clava Cairns,trail,Highland,Inverness,IV2 5EU,Bronze Age tombs in a beautiful riverside setting.,,false
+dog-friendly-uk,Torvean,dog_park,Highland,Inverness,IV3 8NH,A hill and canal-side park on the edge of the city.,,false
+dog-friendly-uk,Cooper Park,dog_park,Moray,Elgin,IV30 1HL,A Victorian park with a pond and the museum beside it.,,false
+dog-friendly-uk,Lossie Forest,dog_park,Moray,Lossiemouth,IV31 6PE,A pine forest with trails and views over the Moray Firth.,,false
+dog-friendly-uk,Grantown Woods,dog_park,Moray,Grantown-on-Spey,PH26 3PF,A riverside forest with the Anagach pines and easy paths.,,false
+dog-friendly-uk,Cromdale Hills,trail,Moray,Grantown-on-Spey,PH26 3PF,A long moorland ridge with grand views over Strathspey.,,false
+dog-friendly-uk,Seaton Park,dog_park,Aberdeenshire,Aberdeen,AB24 1WF,A riverside park with a walled garden on the edge of the city.,,false
+dog-friendly-uk,Johnston Gardens,dog_park,Aberdeenshire,Aberdeen,AB15 8FQ,"A hidden gem of ponds, bridges and woodland in the West End.",,false
+dog-friendly-uk,Balmedie Beach,beach,Aberdeenshire,Balmedie,AB23 8YJ,"A long, dune-backed beach, great for a windy walk.",,false
+dog-friendly-uk,Collieston Beach,beach,Aberdeenshire,Collieston,AB41 8RU,A sandy bay below the old fishing village cliffs.,,false
+dog-friendly-uk,Pennan,trail,Aberdeenshire,Pennan,AB43 6NA,"The red-phone-box village of Local Hero fame, with a shore walk.",,false
+dog-friendly-uk,Macduff Shore,trail,Aberdeenshire,Macduff,AB44 1UL,A harbour town with a clifftop walk and views over the bay.,,false
+dog-friendly-uk,Banff Links,dog_park,Aberdeenshire,Banff,AB45 1EE,A golf links and shore walk with fine sea views.,,false
+dog-friendly-uk,Duff House Estate,dog_park,Aberdeenshire,Banff,AB45 3SX,A grand estate of parkland and woods above the Deveron.,,false
+dog-friendly-uk,Mormond Hill,trail,Aberdeenshire,Strichen,AB43 6SY,A hill with the white horse and white stag cut into the turf.,,false
+dog-friendly-uk,Montrose Basin,dog_park,Angus,Montrose,DD10 9EP,A huge tidal basin with a circular walk and bird hides.,,false
+dog-friendly-uk,Montrose Beach,beach,Angus,Montrose,DD10 8JW,"A long sandy beach below the cliffs, popular with dog walkers.",,false
+dog-friendly-uk,Lunan Bay,beach,Angus,Lunan,DD11 5SN,"A beautiful, remote bay of golden sand under the cliffs.",,false
+dog-friendly-uk,Auchmithie,trail,Angus,Auchmithie,DD11 5SQ,A fishing village with a clifftop walk to Arbroath.,,false
+dog-friendly-uk,Arbroath Cliffs,trail,Angus,Arbroath,DD11 1PA,A dramatic clifftop path from the harbour to the old abbey.,,false
+dog-friendly-uk,Loch Lee,trail,Angus,Edzell,DD9 7UA,A loch at the head of Glen Esk with a fine circular walk.,,false
+dog-friendly-uk,Glen Esk,trail,Angus,Edzell,DD9 7UQ,A beautiful glen with waterfalls and the Loch Lee path.,,false
+dog-friendly-uk,Glen Clova,trail,Angus,Kirriemuir,DD8 5QL,A wild glen of moors and corries at the foot of the Angus hills.,,false
+dog-friendly-uk,Balcomie Sands,beach,Fife,Crail,KY10 3XE,A fine sandy beach below the golf course near Crail.,,false
+dog-friendly-uk,Kingsbarns Beach,beach,Fife,Kingsbarns,KY16 8SH,"A quiet, dune-backed beach with views to the Bass Rock.",,false
+dog-friendly-uk,St Andrews East Sands,beach,Fife,St Andrews,KY16 8TH,"A friendly sandy beach beside the harbour, popular all year.",,false
+dog-friendly-uk,Leven Beach,beach,Fife,Leven,KY8 4NQ,"A long, flat beach with a promenade and views over the Forth.",,false
+dog-friendly-uk,Lundin Links Beach,beach,Fife,Lundin Links,KY8 6AB,A sandy beach backed by the famous standing stones.,,false
+dog-friendly-uk,Lower Largo,beach,Fife,Lower Largo,KY8 6BT,A pretty village bay with the Robinson Crusoe connections.,,false
+dog-friendly-uk,Anstruther Shore,trail,Fife,Anstruther,KY10 3DT,A harbour village with a coastal path and famous fish and chips.,,false
+dog-friendly-uk,Pittenweem,trail,Fife,Pittenweem,KY10 2LP,A fishing village with a rocky shore walk.,,false
+dog-friendly-uk,Ravenscraig Park,dog_park,Fife,Kirkcaldy,KY1 2TB,A cliff-top park with castle views over the Forth.,,false
+dog-friendly-uk,Burntisland Beach,beach,Fife,Burntisland,KY3 9JL,A wide sandy beach with views to Edinburgh and the bridges.,,false
+dog-friendly-uk,Camperdown Country Park,dog_park,Angus,Dundee,DD2 4TF,"A grand park with a wildlife centre, woods and a lake.",,false
+dog-friendly-uk,Broughty Ferry Beach,beach,Angus,Dundee,DD5 2BG,"A sandy beach below the castle, popular with city dog walkers.",,false
+dog-friendly-uk,Garryvoe Beach,beach,Cork,Shanagarry,P25,"A long, quiet golden beach on the east Cork coast.",,false
+dog-friendly-uk,Ballynamona Beach,beach,Cork,Ballycotton,P25,"A hidden, dune-backed beach near Ballycotton.",,false
+dog-friendly-uk,Knockadoon,beach,Cork,Youghal,P25,"A wild, remote headland beach in east Cork.",,false
+dog-friendly-uk,Youghal Front Strand,beach,Cork,Youghal,P36,"A long, flat beach below the old walled town.",,false
+dog-friendly-uk,Ardmore Beach,beach,Waterford,Ardmore,P36,A lovely beach below the cliff-top round tower.,,false
+dog-friendly-uk,Ballycroneen,beach,Cork,Cloyne,P25,A quiet beach of golden sand in a sheltered bay.,,false
+dog-friendly-uk,Fountainstown,beach,Cork,Carrigaline,P43,"A sheltered, shingle-backed beach on the harbour.",,false
+dog-friendly-uk,Roberts Cove,beach,Cork,Carrigaline,P43,"A pretty, quiet cove between the cliffs.",,false
+dog-friendly-uk,Myrtleville,beach,Cork,Carrigaline,P43,A small beach in the shelter of the old fort.,,false
+dog-friendly-uk,Courtmacsherry,beach,Cork,Courtmacsherry,P85,"A long, sandy beach below the village.",,false
+dog-friendly-uk,Dunworley,beach,Cork,Clonakilty,P85,"A wild, remote beach in West Cork.",,false
+dog-friendly-uk,Ventry Beach,beach,Kerry,Ventry,V92,"A sheltered, crescent-shaped beach at the foot of Mount Eagle.",,false
+dog-friendly-uk,Dunquin,trail,Kerry,Dunquin,V92,A clifftop walk above the Blasket ferry pier.,,false
+dog-friendly-uk,Ballydavid,beach,Kerry,Ballydavid,V92,A wild Atlantic beach on the Dingle Peninsula.,,false
+dog-friendly-uk,Banna Strand,beach,Kerry,Ballyheigue,V92,"A huge, open beach of firm sand near Tralee Bay.",,false
+dog-friendly-uk,Fenit Beach,beach,Kerry,Fenit,V92,"A sandy beach around the harbour, popular with locals.",,false
+dog-friendly-uk,Killahoey Beach,beach,Donegal,Dunfanaghy,F92,"A beautiful beach below Horn Head, a favourite with surfers.",,false
+dog-friendly-uk,Portnablagh,beach,Donegal,Portnablagh,F92,A sheltered bay in a pretty coastal village.,,false
+dog-friendly-uk,Marble Hill,beach,Donegal,Dunfanaghy,F92,A stunning dune-backed beach with views to the mountains.,,false
+dog-friendly-uk,Murvagh Beach,beach,Donegal,Murvagh,F92,"A vast, wild beach on Donegal Bay, quiet even in summer.",,false
+dog-friendly-uk,Kinnagoe Bay,beach,Donegal,Inishowen,F93,"A beautiful, hidden cove in the Inishowen peninsula.",,false
+dog-friendly-uk,Five Fingers Strand,beach,Donegal,Malin Head,F93,"A wild, dramatic beach of golden sand and rock stacks.",,false
+dog-friendly-uk,Pollan Bay,beach,Donegal,Ballyliffin,F93,A fine beach near Ballyliffin on the Inishowen coast.,,false
+dog-friendly-uk,Trawbreaga Bay,beach,Donegal,Malin,F93,"A huge, wild bay of sand and mudflats.",,false
+dog-friendly-uk,Narin Beach,beach,Donegal,Narin,F94,"A long, beautiful beach with the sand dunes behind.",,false
+dog-friendly-uk,Traigh an Bhinn,beach,Donegal,Carrigart,F92,A hidden white-sand beach on the Rosguill peninsula.,,false
+dog-friendly-uk,Carrigart,beach,Donegal,Carrigart,F92,A quiet strand beside the little harbour village.,,false
+dog-friendly-uk,Sandymount Strand,beach,Dublin,Dublin,D04,"A huge, flat strand beside the city with views to the mountains.",,false
+dog-friendly-uk,Seapoint,beach,Dublin,Dublin,A96,A promenade and bathing spot below the Martello tower.,,false
+dog-friendly-uk,Clontarf Promenade,trail,Dublin,Dublin,D03,A long seaside walk with views across Dublin Bay.,,false
+dog-friendly-uk,Vico Walk,trail,Dublin,Dalkey,A96,A clifftop walk with the finest views on the south Dublin coast.,,false
+dog-friendly-uk,Dalkey Quarry,trail,Dublin,Dalkey,A96,A disused quarry on the hill with huge views over the bay.,,false
+dog-friendly-uk,Killiney Beach,beach,Dublin,Killiney,A96,"A pebbly beach below the hill, part of the Irish Riviera.",,false
+dog-friendly-uk,Kilcoole Beach,beach,Wicklow,Kilcoole,A63,"A quiet, shingle-backed beach between Greystones and Wicklow.",,false
+dog-friendly-uk,Newcastle Beach,beach,Wicklow,Newcastle,A67,"A wild, unspoilt beach south of Greystones.",,false
+dog-friendly-uk,Wicklow Town,trail,Wicklow,Wicklow,A67,A harbour town with a shore walk below the Black Castle.,,false
+dog-friendly-uk,Avondale Forest,dog_park,Wicklow,Rathdrum,A67,A forest park with trails and the birthplace of the GAA.,,false
+dog-friendly-uk,Vale of Avoca,trail,Wicklow,Avoca,A67,"The meeting of the waters, with riverside paths.",,false
+dog-friendly-uk,Courtown Beach,beach,Wexford,Courtown,Y25,"A sandy, family-friendly beach with a wooden boardwalk.",,false
+dog-friendly-uk,Morriscastle Strand,beach,Wexford,Kilmuckridge,Y25,"A huge, flat sandy beach, gloriously quiet.",,false
+dog-friendly-uk,Cahore Beach,beach,Wexford,Cahore,Y25,A shingle beach with rock pools and a fishing tradition.,,false
+dog-friendly-uk,Annestown Beach,beach,Waterford,Annestown,X91,"A sheltered, sandy beach in a pretty cove.",,false
+dog-friendly-uk,Ballyquin Beach,beach,Waterford,Annestown,X91,"A wild, secluded beach on the Copper Coast.",,false
+dog-friendly-uk,Stradbally Cove,beach,Waterford,Stradbally,X91,A beautiful cove of sand and rock pools.,,false
+dog-friendly-uk,Bunmahon Beach,beach,Waterford,Bunmahon,X91,"A wide, shingle beach below the copper mine ruins.",,false
+dog-friendly-uk,Kilmurrin Cove,beach,Waterford,Bunmahon,X91,A hidden cove of sand and pebbles on the Copper Coast.,,false
+dog-friendly-uk,Boatstrand,beach,Waterford,Boatstrand,X91,"A tiny, quiet beach below the cliffs.",,false
+dog-friendly-uk,Silverstrand (Galway),beach,Galway,Barna,H91,"A sheltered, sandy cove near Barna village.",,false
+dog-friendly-uk,Blackrock Beach,beach,Galway,Salthill,H91,A shingle beach with the famous diving tower.,,false
+dog-friendly-uk,Mannin Bay,beach,Galway,Ballyconneely,H71,A turquoise bay of white sand and clear water.,,false
+dog-friendly-uk,Ballynahinch,dog_park,Galway,Roundstone,H71,"A beautiful estate of lakes, woods and the river.",,false
+dog-friendly-uk,Clifden Bay,beach,Galway,Clifden,H71,A quiet beach near the capital of Connemara.,,false
+dog-friendly-uk,Gurteen (Clifden),beach,Galway,Clifden,H71,A hidden white-sand cove at the end of a lane.,,false
+dog-friendly-uk,Killary Harbour,trail,Galway,Leenane,H71,A fjord-like inlet with a shoreline walk and mussel farms.,,false
+dog-friendly-uk,Mamean,trail,Galway,Leenane,H71,A remote mountain valley with a hidden holy well.,,false
+dog-friendly-uk,Ballynakill,beach,Galway,Ballyconneely,H71,"A quiet, beautiful beach with the Twelve Bens behind.",,false
+dog-friendly-uk,Lettermore,beach,Galway,Lettermore,H91,A wild Atlantic beach in the Connemara islands.,,false
+dog-friendly-uk,Carraroe,beach,Galway,Carraroe,H91,A white coral-sand beach on the south Connemara coast.,,false
+dog-friendly-uk,Ingleton Waterfalls,trail,North Yorkshire,Ingleton,LA6 3ET,A famous circular walk past four waterfalls in a wooded gorge.,,false
+dog-friendly-uk,Aysgarth Falls,trail,North Yorkshire,Aysgarth,DL8 3TH,"Three stepped waterfalls on the River Ure, with riverside paths.",,false
+dog-friendly-uk,Hardraw Force,trail,North Yorkshire,Hawes,DL8 3LZ,"England's highest single-drop waterfall, behind the Green Dragon inn.",,false
+dog-friendly-uk,Semerwater,trail,North Yorkshire,Bainbridge,DL8 3DT,A beautiful lake in Wensleydale with a waterside walk.,,false
+dog-friendly-uk,Ribblehead Viaduct,trail,North Yorkshire,Ribblehead,LA6 3QT,A walk to the great railway viaduct on the Settle-Carlisle line.,,false
+dog-friendly-uk,Pen-y-ghent,trail,North Yorkshire,Horton-in-Ribblesdale,BD24 0HE,"One of the Three Peaks, with a fine ridge route.",,false
+dog-friendly-uk,Ingleborough,trail,North Yorkshire,Clapham,LA2 8ED,A great limestone mountain with a plateau summit.,,false
+dog-friendly-uk,Whernside,trail,North Yorkshire,Ribblehead,LA6 3QT,"The highest of the Three Peaks, with a long but gentle ridge.",,false
+dog-friendly-uk,Swaledale,trail,North Yorkshire,Reeth,DL11 6TE,A classic dale of stone villages and riverside paths.,,false
+dog-friendly-uk,Gunnerside,trail,North Yorkshire,Gunnerside,DL11 6LH,A lead-mining valley with a lovely riverside walk.,,false
+dog-friendly-uk,Buttertubs Pass,trail,North Yorkshire,Thwaite,DL11 6EB,A road and footpath over the moor with strange limestone holes.,,false
+dog-friendly-uk,Rosedale,trail,North Yorkshire,Rosedale Abbey,YO18 8SA,A wild dale with old ironstone railway tracks for walking.,,false
+dog-friendly-uk,Farndale,trail,North Yorkshire,Farndale,YO62 7LW,Famous for its spring daffodils along the river.,,false
+dog-friendly-uk,Goathland,trail,North Yorkshire,Goathland,YO22 5LJ,The Heartbeat village with the steam railway and moor walks.,,false
+dog-friendly-uk,Rievaulx Abbey,trail,North Yorkshire,Helmsley,YO62 5LB,A riverside walk to the great abbey ruins.,,false
+dog-friendly-uk,Duncombe Park,dog_park,North Yorkshire,Helmsley,YO62 5EB,A landscaped estate with terraced gardens and woodland.,,false
+dog-friendly-uk,Osmotherley,trail,North Yorkshire,Osmotherley,DL6 3AA,A village at the edge of the moors with fine circular walks.,,false
+dog-friendly-uk,Cod Beck Reservoir,trail,North Yorkshire,Osmotherley,DL6 3AB,A quiet reservoir with a moorland loop walk.,,false
+dog-friendly-uk,Blakey Ridge,trail,North Yorkshire,Kirkbymoorside,YO62 7LQ,A high moorland ridge with huge views over the dales.,,false
+dog-friendly-uk,Grassington,trail,North Yorkshire,Grassington,BD23 5LB,A limestone village with riverside and dale walks.,,false
+dog-friendly-uk,Trearddur Bay,beach,Anglesey,Trearddur,LL65 2YR,A lively bay with two sandy beaches and rock pools.,,false
+dog-friendly-uk,Church Bay,beach,Anglesey,Rhoscolyn,LL65 2NL,"A sheltered, dog-friendly cove with a famous seafood cafe.",,false
+dog-friendly-uk,Rhosneigr,beach,Anglesey,Rhosneigr,LL64 5UJ,"Two big beaches of firm sand, popular with surfers.",,false
+dog-friendly-uk,Traeth Lligwy,beach,Anglesey,Moelfre,LL72 8LN,A lovely sandy bay below the woodland of Lligwy.,,false
+dog-friendly-uk,Benllech Bay,beach,Anglesey,Benllech,LL74 8SH,"A wide, family-friendly beach with soft sand.",,false
+dog-friendly-uk,Red Wharf Bay,beach,Anglesey,Pentraeth,LL75 8YN,"A huge bay of sand and mudflats, teeming with birds.",,false
+dog-friendly-uk,Porth Dafarch,beach,Anglesey,Trearddur,LL65 2YF,A sheltered rocky cove with calm water.,,false
+dog-friendly-uk,Borth Wen,beach,Anglesey,Rhoscolyn,LL65 2NL,"A quiet, out-of-the-way beach of pebbles and sand.",,false
+dog-friendly-uk,Aberffraw,beach,Anglesey,Aberffraw,LL63 5DA,A beautiful dune-backed beach at the mouth of the river.,,false
+dog-friendly-uk,Llanddona,beach,Anglesey,Llanddona,LL58 8UN,"A vast, wild beach below the village's windswept hills.",,false
+dog-friendly-uk,Penmon Point,trail,Anglesey,Penmon,LL58 8RP,A headland walk to the old lighthouse with views to Puffin Island.,,false
+dog-friendly-uk,Beaumaris Green,dog_park,Anglesey,Beaumaris,LL58 8AA,"A seafront green below the great castle, with views to Snowdonia.",,false
+dog-friendly-uk,Llandudno West Shore,beach,Conwy,Llandudno,LL30 2RF,"A wide, sandy beach with views across the bay to the mountains.",,false
+dog-friendly-uk,Colwyn Bay Beach,beach,Conwy,Colwyn Bay,LL29 8LE,"A long, flat beach with a new promenade and pier.",,false
+dog-friendly-uk,Rhos-on-Sea,beach,Conwy,Rhos-on-Sea,LL28 4ED,"A pebbly, dog-friendly shore below the promenade.",,false
+dog-friendly-uk,Conwy Morfa,beach,Conwy,Conwy,LL32 8PZ,A huge dune-backed beach below the castle walls.,,false
+dog-friendly-uk,Llyn Crafnant,trail,Conwy,Trefriw,LL27 0JZ,A beautiful lake in the hills above the Conwy valley.,,false
+dog-friendly-uk,Llyn Geirionydd,trail,Conwy,Trefriw,LL27 0YN,A quiet lake with a shoreline walk and mountain views.,,false
+dog-friendly-uk,Capel Curig,trail,Conwy,Capel Curig,LL24 0ES,A walking hub with trails under the Glyderau and Snowdon.,,false
+dog-friendly-uk,Nant y Gwyrd,trail,Conwy,Llanrwst,LL26 0PL,A wooded gorge walk with waterfalls near Llanrwst.,,false
+dog-friendly-uk,Caswell Bay,beach,Swansea,Gower,SA3 3DA,"A sheltered golden bay, great for families and dog walks out of season.",,false
+dog-friendly-uk,Langland Bay,beach,Swansea,Gower,SA3 4TD,"A smart, popular bay below the cliffs.",,false
+dog-friendly-uk,Rotherslade,beach,Swansea,Gower,SA3 4TP,"A tiny, sheltered cove next to Langland.",,false
+dog-friendly-uk,Port Eynon,beach,Swansea,Gower,SA3 1NN,A long sandy beach at the southern tip of Gower.,,false
+dog-friendly-uk,Mewslade Bay,beach,Swansea,Gower,SA3 1PN,"A hidden, beautiful bay below the cliffs.",,false
+dog-friendly-uk,Fall Bay,beach,Swansea,Gower,SA3 1HU,"A wild, surfy bay near the Worms Head.",,false
+dog-friendly-uk,Whiteford Sands,beach,Swansea,Gower,SA3 2AN,"A vast, remote beach stretching towards the Burry Estuary.",,false
+dog-friendly-uk,Broughton Bay,beach,Swansea,Gower,SA3 1LY,A quiet north-Gower beach of wide golden sand.,,false
+dog-friendly-uk,Pwll Du,beach,Swansea,Gower,SA3 2HF,"A pretty, sheltered bay near the headland.",,false
+dog-friendly-uk,Brandy Cove,beach,Swansea,Gower,SA3 4RJ,"A tiny, secluded beach between Caswell and Pwll Du.",,false
+dog-friendly-uk,Porthselau,beach,Pembrokeshire,St David's,SA62 6UZ,A lovely beach below the coastal path near St David's.,,false
+dog-friendly-uk,Caerfai Bay,beach,Pembrokeshire,St David's,SA62 6QT,"A small bay of red cliffs, a short walk from the cathedral.",,false
+dog-friendly-uk,Porthclais,beach,Pembrokeshire,St David's,SA62 6QT,"A pretty harbour with a beach, great for a sheltered dip.",,false
+dog-friendly-uk,St Non's,trail,Pembrokeshire,St David's,SA62 6BN,A cliff-top walk to the holy well and chapel of St Non.,,false
+dog-friendly-uk,Solva,trail,Pembrokeshire,Solva,SA62 6UB,A colourful harbour village with a coastal path.,,false
+dog-friendly-uk,Nolton Haven,beach,Pembrokeshire,Nolton Haven,SA62 3NL,"A small, sheltered cove with a pub above the sand.",,false
+dog-friendly-uk,Druidston,beach,Pembrokeshire,Druidston,SA62 3NE,"A wild beach below the cliffs, reached by a steep path.",,false
+dog-friendly-uk,Broad Haven (Pembrokeshire),beach,Pembrokeshire,Broad Haven,SA62 3JP,A big sandy beach with lifeguards in summer.,,false
+dog-friendly-uk,Little Haven,beach,Pembrokeshire,Little Haven,SA62 3UL,"A tiny, pretty cove with two beaches and a pub.",,false
+dog-friendly-uk,Abercastle,beach,Pembrokeshire,Abercastle,SA62 5YG,"A wild, rock-pool beach around a small harbour.",,false
+dog-friendly-uk,Padley Gorge,trail,Derbyshire,Grindleford,S32 2HE,A magical boulder-strewn gorge with ancient oaks and a stream.,,false
+dog-friendly-uk,Baslow Edge,trail,Derbyshire,Baslow,DE45 1RY,A gritstone edge with fine views over the Chatsworth park.,,false
+dog-friendly-uk,Curbar Edge,trail,Derbyshire,Calver,S32 3YR,"A long, open gritstone escarpment with huge views.",,false
+dog-friendly-uk,Froggatt Edge,trail,Derbyshire,Froggatt,S32 3ZA,"A dramatic edge above the valley, with the Chequers Inn below.",,false
+dog-friendly-uk,Higger Tor,trail,Derbyshire,Hathersage,S32 1BG,A rocky summit above Burbage valley with big moor views.,,false
+dog-friendly-uk,Burbage Valley,trail,Derbyshire,Hathersage,S32 1BR,A wild valley of rocks and heather below Stanage Edge.,,false
+dog-friendly-uk,Kinder Scout,trail,Derbyshire,Edale,S33 7ZL,"The highest point in the Peak District, reached from Edale.",,false
+dog-friendly-uk,Castleton,trail,Derbyshire,Castleton,S33 8WH,A village of show caves with a fine ridge walk above.,,false
+dog-friendly-uk,Winnats Pass,trail,Derbyshire,Castleton,S33 8WA,A dramatic limestone gorge walk with a steep climb.,,false
+dog-friendly-uk,Tissington Trail,trail,Derbyshire,Ashbourne,DE6 1RA,"A flat, traffic-free path along an old railway line.",,false
+dog-friendly-uk,High Peak Trail,trail,Derbyshire,Parsley Hay,DE6 1DZ,"A long, level route across the limestone plateau.",,false
+dog-friendly-uk,Lathkill Dale,trail,Derbyshire,Monyash,DE45 1JH,A gentle limestone dale with the river rising from springs.,,false
+dog-friendly-uk,Chee Dale,trail,Derbyshire,Miller's Dale,SK17 8SN,"A deep, dramatic gorge with stepping stones and cliffs.",,false
+dog-friendly-uk,Wyming Brook,trail,Derbyshire,Sheffield,S10 4QX,A woodland ravine with cascades above the Rivelin valley.,,false
+dog-friendly-uk,Longshaw,dog_park,Derbyshire,Sheffield,S11 7TZ,A moorland estate of woods and rocks with fine views.,,false
+dog-friendly-uk,Haytor,trail,Devon,Haytor,TQ13 9XT,The famous granite tor with its quarry tramway and views.,,false
+dog-friendly-uk,Hound Tor,trail,Devon,Haytor,TQ13 9XP,A wild tor with the ruins of a medieval village nearby.,,false
+dog-friendly-uk,Widecombe-in-the-Moor,trail,Devon,Widecombe,TQ13 7TD,A classic Dartmoor village with the church and moor walks.,,false
+dog-friendly-uk,Burrator Reservoir,dog_park,Devon,Yelverton,PL20 6PF,A beautiful reservoir with a circular waterside walk.,,false
+dog-friendly-uk,Castle Drogo,trail,Devon,Drewsteignton,EX6 6PB,A granite castle with woodland walks above the Teign gorge.,,false
+dog-friendly-uk,Valley of Rocks,trail,Devon,Lynton,EX35 6JH,"A strange, wild valley of rock stacks beside the sea at Lynton.",,false
+dog-friendly-uk,Watersmeet,trail,Devon,Lynton,EX35 6NT,"Where the East Lyn meets the river, with a famous teahouse.",,false
+dog-friendly-uk,Foreland Point,trail,Devon,Lynton,EX35 6NR,"The highest sea cliff on the south-west coast, with a light on top.",,false
+dog-friendly-uk,Horner Wood,dog_park,Somerset,Porlock,TA24 8HY,Ancient oak woodland in a combe of the Exmoor coast.,,false
+dog-friendly-uk,Dunkery Beacon,trail,Somerset,Wheddon Cross,TA24 7ET,"The highest point on Exmoor, with huge views in all directions.",,false
+dog-friendly-uk,Badgworthy Water,trail,Somerset,Exford,TA24 7PY,"The Doone Valley of legend, with a riverside path.",,false
+dog-friendly-uk,Exford,trail,Somerset,Exford,TA24 7PP,A moorland village with walks along the River Exe.,,false
+dog-friendly-uk,Withypool,trail,Somerset,Withypool,TA24 7QP,A pretty Exmoor village with a stone bridge and riverside walks.,,false
+dog-friendly-uk,Lyndhurst,dog_park,Hampshire,New Forest,SO43 7NY,"The New Forest's capital, with the woodland walks all around.",,false
+dog-friendly-uk,Hatchet Pond,dog_park,Hampshire,New Forest,SO41 6LQ,"A large, beautiful pond with open forest grazing all around.",,false
+dog-friendly-uk,Ober Water,trail,Hampshire,New Forest,SO42 7YF,A clear forest stream with a lovely woodland walk.,,false
+dog-friendly-uk,Pig Bush,dog_park,Hampshire,New Forest,SO40 2UQ,A wild corner of the forest with old bog woodland.,,false
+dog-friendly-uk,Buckler's Hard,trail,Hampshire,New Forest,SO45 3WE,A riverside walk to the shipbuilding hamlet on the Beaulieu.,,false
+dog-friendly-uk,Keyhaven,dog_park,Hampshire,New Forest,SO41 0TP,A harbour village with sea-wall walks and birdlife.,,false
+dog-friendly-uk,Mudeford,beach,Dorset,Christchurch,BH23 3NT,A sandy spit beach with views over the harbour entrance.,,false
+dog-friendly-uk,Stanpit Marsh,dog_park,Dorset,Christchurch,BH23 2NE,A nature reserve of saltmarsh with a flat circular walk.,,false
+dog-friendly-uk,Steamer Point,trail,Dorset,Christchurch,BH23 7DQ,A clifftop walk with the old hotel ruins and sea views.,,false
+dog-friendly-uk,Firle Beacon,trail,East Sussex,Firle,BN8 6JY,A downland summit with views across the Weald and the sea.,,false
+dog-friendly-uk,Long Man of Wilmington,trail,East Sussex,Wilmington,BN26 5SW,A walk to the giant chalk figure on the downs.,,false
+dog-friendly-uk,Mount Caburn,trail,East Sussex,Lewes,BN8 6ES,A hillfort with superb views over the Ouse valley.,,false
+dog-friendly-uk,Ross Back Sands,beach,Northumberland,Belford,NE70 7HF,"A wild, remote stretch of sand below the dunes.",,false
+dog-friendly-uk,Seaton Sluice,beach,Northumberland,Whitley Bay,NE26 4QN,A sandy bay at the old harbour village.,,false
+dog-friendly-uk,Cullercoats Bay,beach,Tyne and Wear,Cullercoats,NE30 4NR,A sheltered bay with the old watch house and lifeboat station.,,false
+dog-friendly-uk,Marsden Bay,beach,Tyne and Wear,South Shields,NE34 7AA,A beach below the famous Marsden Grotto caves.,,false
+dog-friendly-uk,Souter Lighthouse,trail,Tyne and Wear,Whitburn,SR6 7NH,A clifftop walk to the red-and-white lighthouse.,,false
+dog-friendly-uk,Whitburn Beach,beach,Tyne and Wear,Whitburn,SR6 7HP,"A quiet beach below the cliffs, popular with dog walkers.",,false
+dog-friendly-uk,Seaham Beach,beach,Durham,Seaham,SR7 7AE,"A long, flat beach below the cliffs, great for a walk.",,false
+dog-friendly-uk,Crimdon Beach,beach,Durham,Hartlepool,TS27 4BS,"A wide, dune-backed beach south of Hartlepool.",,false
+dog-friendly-uk,Seaton Carew,beach,Durham,Hartlepool,TS25 1AF,"A long, flat beach with a promenade and views over the docks.",,false
+dog-friendly-uk,Saltburn Beach,beach,North Yorkshire,Saltburn-by-the-Sea,TS12 1HB,A Victorian beach below the cliff lift and pier.,,false
+dog-friendly-uk,Redcar Beach,beach,North Yorkshire,Redcar,TS10 3AE,"A long, sandy beach with a famous steel town history.",,false
+dog-friendly-uk,Scarborough South Bay,beach,North Yorkshire,Scarborough,YO11 2AY,A lively beach below the castle headland; dogs welcome out of season.,,false
+dog-friendly-uk,North Bay (Scarborough),beach,North Yorkshire,Scarborough,YO12 7NJ,"A quieter, sandy bay with the old amusement park behind.",,false
+dog-friendly-uk,Boggle Hole,beach,North Yorkshire,Robin Hood's Bay,YO22 4NQ,A rocky cove at the foot of the wooded valley.,,false
+dog-friendly-uk,Ravenscar,trail,North Yorkshire,Ravenscar,YO13 0LN,A clifftop walk at the edge of the North York Moors.,,false
+dog-friendly-uk,Fraisthorpe Beach,beach,East Yorkshire,Bridlington,YO15 3QU,"A vast, quiet sandy beach south of Bridlington.",,false
+dog-friendly-uk,Barmston Beach,beach,East Yorkshire,Barmston,YO25 8PJ,"A long, quiet beach below the low cliffs.",,false
+dog-friendly-uk,Tunstall Beach,beach,East Yorkshire,Withernsea,HU12 0JQ,"A wide, flat beach that is gloriously uncrowded.",,false
+dog-friendly-uk,Spurn Point,trail,East Yorkshire,Kilnsea,HU12 0NL,A wild three-mile sand spit with a lighthouse and sea on both sides.,,false
+dog-friendly-uk,Kilnsea,beach,East Yorkshire,Kilnsea,HU12 0UJ,A quiet beach at the start of the Spurn peninsula.,,false
