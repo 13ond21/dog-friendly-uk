@@ -246,6 +246,11 @@
       border-radius: 999px; background: var(--bg);
       border: 1px solid var(--border); color: var(--muted);
     }
+    .specs { margin-top: 10px; border-top: 1px solid var(--border); padding-top: 8px; }
+    .spec-row { display: flex; gap: 8px; align-items: flex-start; font-size: .85rem; color: var(--muted); padding: 3px 0; }
+    .spec-row a { color: var(--green); }
+    .spec-icon { flex: 0 0 20px; text-align: center; }
+    .facilities-row { align-items: center; }
     .actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 8px; }
     .btn {
       display: inline-block;
@@ -756,20 +761,26 @@
           <a class="btn" href="https://maps.apple.com/?q=${q}" target="_blank" rel="noopener noreferrer" title="Open in Apple Maps">Apple Maps</a>
           <a class="btn" href="https://www.google.com/maps/search/?api=1&amp;query=${nearestLoos}" target="_blank" rel="noopener noreferrer" title="Nearest public toilets to this place">🚽 Nearest toilets</a>
         </div>`;
-      const opening = item.opening_hours ? `<p class="meta">🕒 ${esc(item.opening_hours)}</p>` : "";
-      const phone = item.phone
-        ? `<p class="meta">📞 <a href="tel:${esc(String(item.phone).replace(/\s+/g, ""))}">${esc(item.phone)}</a></p>`
-        : "";
+      const specRows = [];
+      if (item.opening_hours) {
+        specRows.push(`<div class="spec-row"><span class="spec-icon">🕒</span><span>${esc(item.opening_hours)}</span></div>`);
+      }
+      if (item.phone) {
+        specRows.push(`<div class="spec-row"><span class="spec-icon">📞</span><span><a href="tel:${esc(String(item.phone).replace(/\s+/g, ""))}">${esc(item.phone)}</a></span></div>`);
+      }
       const facilities = item.category === "toilet"
-        ? `<div class="facilities">${item.wheelchair_accessible ? '<span class="facility">♿ Accessible</span>' : ""}${item.baby_change ? '<span class="facility">🍼 Baby change</span>' : ""}</div>`
+        ? `<div class="spec-row facilities-row"><span class="spec-icon">♿</span><span class="facilities">${item.wheelchair_accessible ? '<span class="facility">Accessible</span>' : ""}${item.baby_change ? '<span class="facility">Baby change</span>' : ""}</span></div>`
+        : "";
+      const specs = (specRows.length || facilities)
+        ? `<div class="specs">${specRows.join("")}${facilities}</div>`
         : "";
       return `
         <article class="card">
           <div class="card-top">${featured}${badge}</div>
           <h2><a class="card-link" href="listing.html?slug=${listingSlug(item)}">${esc(item.name)}</a></h2>
-          <p class="meta">${esc(location)}</p>
+          <p class="meta">📍 ${esc(location)}</p>
           <p class="desc">${esc(item.description)}</p>
-          ${opening}${phone}${facilities}
+          ${specs}
           ${maps}
         </article>`;
     }
