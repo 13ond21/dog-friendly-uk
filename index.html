@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- ===== SEO BASICS ===== -->
-  <title>Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches &amp; Trails</title>
-  <meta name="description" content="A free directory of dog-friendly pubs, beaches and walking trails across the UK and Ireland. Search by region, category or keyword and find your next adventure with your dog.">
+  <title>Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches, Trails &amp; Dog Parks</title>
+  <meta name="description" content="A free directory of dog-friendly pubs, beaches, walking trails and dog parks across the UK and Ireland. Search by region, category or keyword and find your next adventure with your dog.">
   <!-- Update the canonical URL once your GitHub Pages site is live -->
   <link rel="canonical" href="https://13ond21.github.io/dog-friendly-uk/">
 
   <!-- ===== OPEN GRAPH (Facebook, WhatsApp, LinkedIn) ===== -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Dog-Friendly Spots UK &amp; Ireland">
-  <meta property="og:title" content="Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches &amp; Trails">
-  <meta property="og:description" content="Real dog-friendly pubs, beaches and walking trails across the UK and Ireland. Search by region and find your next adventure.">
+  <meta property="og:title" content="Dog-Friendly Spots UK &amp; Ireland | Pubs, Beaches, Trails &amp; Dog Parks">
+  <meta property="og:description" content="Real dog-friendly pubs, beaches, walking trails and dog parks across the UK and Ireland. Search by region and find your next adventure.">
   <meta property="og:url" content="https://13ond21.github.io/dog-friendly-uk/">
   <!-- og:image should be a real 1200x630 PNG (e.g. og-image.png) added to the repo once
        your site is live. Until then, leave this line or delete it — social previews
@@ -140,6 +140,7 @@
     .badge.pub    { background: var(--amber); }
     .badge.beach  { background: var(--blue); }
     .badge.trail  { background: var(--green); }
+    .badge.dog_park { background: #7a3fb5; }
     .badge.featured { background: #141b16; }
     .meta { color: var(--muted); font-size: .88rem; }
     .desc { font-size: .95rem; margin: 0; }
@@ -184,7 +185,7 @@
   <header class="site-header">
     <div class="wrap">
       <h1>🐾 Dog-Friendly Spots UK &amp; Ireland</h1>
-      <p class="tagline">Real pubs, beaches and walking trails where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
+      <p class="tagline">Real pubs, beaches, walking trails and dog parks where your dog is welcome — across England, Wales, Scotland, Northern Ireland and Ireland.</p>
     </div>
   </header>
 
@@ -199,6 +200,7 @@
         <button type="button" class="cat-btn" data-category="pub" aria-pressed="false">Pubs</button>
         <button type="button" class="cat-btn" data-category="beach" aria-pressed="false">Beaches</button>
         <button type="button" class="cat-btn" data-category="trail" aria-pressed="false">Trails</button>
+        <button type="button" class="cat-btn" data-category="dog_park" aria-pressed="false">Dog Parks</button>
       </div>
       <div>
         <label class="sr-only" for="region">Filter by region</label>
@@ -287,7 +289,7 @@
        (e.g. "wild-swimming", "mobile-dog-groomers"). */
     const DIRECTORY_SLUG = "dog-friendly-uk";
 
-    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail" };
+    const CATEGORY_LABELS = { pub: "Pub", beach: "Beach", trail: "Trail", dog_park: "Dog Park" };
 
     const state = { all: [], category: "all", region: "all", query: "" };
 
